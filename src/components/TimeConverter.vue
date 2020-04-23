@@ -1,25 +1,30 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <input v-model="value" type="text" placeholder="Value" />
+    <input v-model.number="input" type="number" placeholder="Value" />
     <br />
-    <input type="radio" id="hour" value="hr" v-model="type" />
+    <input type="radio" id="hour" value="hour" v-model="selection" />
     <label for="hour">hour(s)</label>
-    <input type="radio" id="minute" value="min" v-model="type" />
+    <input type="radio" id="minute" value="minute" v-model="selection" />
     <label for="minute">minute(s)</label>
-    <input type="radio" id="second" value="sec" v-model="type" />
+    <input type="radio" id="second" value="second" v-model="selection" />
     <label for="second">second(s)</label>
-    <input type="radio" id="round" value="round" v-model="type" />
+    <input type="radio" id="round" value="round" v-model="selection" />
     <label for="round">round(s)</label>
-    <input type="radio" id="turn" value="turn" v-model="type" />
-    <label for="turn">turn(s)</label>
-    <p>value is: {{ value }}</p>
-    <p>type is: {{ type }}</p>
+    <p v-if="format">{{ format }}</p>
+    <p v-if="rounds">{{ rounds }}</p>
     <p></p>
   </div>
 </template>
 
 <script>
+const SELECTION_HOUR = "hour";
+const SELECTION_MINUTE = "minute";
+const SELECTION_ROUND = "round";
+const FIXED_TIME_UNIT = 60;
+const SECONDS_PER_ROUND = 6;
+const DECIMAL_PLACES = 2;
+
 export default {
   name: "TimeConverter",
   props: {
@@ -27,12 +32,48 @@ export default {
   },
   data: function() {
     return {
-      value: "",
-      type: "",
-      unit: "seconds"
+      input: "",
+      selection: SELECTION_HOUR
     };
   },
-  computed: {}
+  computed: {
+    seconds: function() {
+      return this.toSeconds();
+    },
+    format: function() {
+      const seconds = this.seconds % FIXED_TIME_UNIT;
+      let minutes = Math.floor(this.seconds / FIXED_TIME_UNIT);
+      const hours = Math.floor(minutes / FIXED_TIME_UNIT);
+      minutes = minutes % FIXED_TIME_UNIT;
+      return `${hours} hour(s), ${minutes} minute(s) and ${seconds} second(s)`;
+    },
+    rounds: function() {
+      let fixed = 0;
+      if (this.seconds % SECONDS_PER_ROUND > 0) {
+        fixed = (this.seconds / SECONDS_PER_ROUND).toFixed(DECIMAL_PLACES);
+      } else {
+        fixed = this.seconds / SECONDS_PER_ROUND;
+      }
+      return `${fixed} round(s)`;
+    }
+  },
+  methods: {
+    toSeconds() {
+      switch (this.selection) {
+        case SELECTION_HOUR: {
+          return this.input * FIXED_TIME_UNIT * FIXED_TIME_UNIT;
+        }
+        case SELECTION_MINUTE: {
+          return this.input * FIXED_TIME_UNIT;
+        }
+        case SELECTION_ROUND: {
+          return this.input * SECONDS_PER_ROUND;
+        }
+        default:
+          return Math.floor(this.input);
+      }
+    }
+  }
 };
 </script>
 
@@ -41,7 +82,6 @@ h3 {
   margin: 40px 0 0;
 }
 ul {
-  list-style-type: none;
   padding: 0;
 }
 li {

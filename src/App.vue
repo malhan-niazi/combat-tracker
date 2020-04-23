@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <TimeConverter msg="Time Converter" />
+    <TimeConverter msg="DnD Time Converter" />
   </div>
 </template>
 
