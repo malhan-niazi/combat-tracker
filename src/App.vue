@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <TimeConverter />
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      With Bootstrap!
-      <button
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <HeaderComponent />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          COL 1
+        </div>
+        <div class="col-md">
+          COL 2
+        </div>
+        <div class="col-md">
+          COL 3
+          <TimeConverter />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import TimeConverter from "./components/TimeConverter.vue";
+import TimeConverter from './components/TimeConverter.vue';
+import HeaderComponent from './components/HeaderComponent.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    TimeConverter
-  }
+    TimeConverter,
+    HeaderComponent,
+  },
 };
 </script>
 
@@ -32,5 +41,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+.col,
+.col-md {
+  border: 1px dotted #2c3e50;
+}
+div h3 {
+  text-align: left;
 }
 </style>

@@ -1,37 +1,48 @@
 <template>
   <div class="hello">
     <h3>{{ msg }}</h3>
-    <input v-model.number="input" type="number" placeholder="Value" /> in
-    <br />
-    <input type="radio" id="hour" value="hour" v-model="selection" />
-    <label for="hour">hour(s)</label>
-    <input type="radio" id="minute" value="minute" v-model="selection" />
-    <label for="minute">minute(s)</label>
-    <input type="radio" id="second" value="second" v-model="selection" />
-    <label for="second">second(s)</label>
-    <input type="radio" id="round" value="round" v-model="selection" />
-    <label for="round">round(s)</label>
+    <div class="form-group">
+      <input
+        type="number"
+        class="form-control"
+        id="value"
+        aria-describedby="value"
+        placeholder="Value"
+        v-model.number="input"
+      />
+      <small id="valueHelp" class="form-text text-muted"
+        >Enter in a value, and select the corresponding unit of time.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="unitSelection">Select Time-Unit</label>
+      <select class="form-control" id="unitSelection" v-model="selection">
+        <option>hour</option>
+        <option>minute</option>
+        <option>second</option>
+        <option>round</option>
+      </select>
+    </div>
     <p v-if="conversion">{{ conversion }}</p>
     <p v-if="rounds">{{ rounds }}</p>
-    <p></p>
   </div>
 </template>
 
 <script>
-const SELECTION_HOUR = "hour";
-const SELECTION_MINUTE = "minute";
-const SELECTION_ROUND = "round";
+const SELECTION_HOUR = 'hour';
+const SELECTION_MINUTE = 'minute';
+const SELECTION_ROUND = 'round';
 const FIXED_TIME_UNIT = 60;
 const SECONDS_PER_ROUND = 6;
 const DECIMAL_PLACES = 2;
 
 export default {
-  name: "TimeConverter",
+  name: 'TimeConverter',
   data: function() {
     return {
-      msg: "Time Converter",
-      input: "",
-      selection: SELECTION_HOUR
+      msg: 'Time Converter',
+      input: '',
+      selection: SELECTION_HOUR,
     };
   },
   computed: {
@@ -53,7 +64,7 @@ export default {
         fixed = this.seconds / SECONDS_PER_ROUND;
       }
       return `${fixed} round(s)`;
-    }
+    },
   },
   methods: {
     toSeconds() {
@@ -70,10 +81,9 @@ export default {
         default:
           return Math.floor(this.input);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
