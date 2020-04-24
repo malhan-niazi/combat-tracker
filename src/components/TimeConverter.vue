@@ -11,7 +11,7 @@
         v-model.number="input"
       />
       <small id="valueHelp" class="form-text text-muted"
-        >Enter in a value, and select the corresponding unit of time.</small
+        >Enter a value, and select the corresponding unit of time.</small
       >
     </div>
     <div class="form-group">
