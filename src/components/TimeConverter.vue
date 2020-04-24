@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <input v-model.number="input" type="number" placeholder="Value" />
+    <h3>{{ msg }}</h3>
+    <input v-model.number="input" type="number" placeholder="Value" /> in
     <br />
     <input type="radio" id="hour" value="hour" v-model="selection" />
     <label for="hour">hour(s)</label>
@@ -11,7 +11,7 @@
     <label for="second">second(s)</label>
     <input type="radio" id="round" value="round" v-model="selection" />
     <label for="round">round(s)</label>
-    <p v-if="format">{{ format }}</p>
+    <p v-if="conversion">{{ conversion }}</p>
     <p v-if="rounds">{{ rounds }}</p>
     <p></p>
   </div>
@@ -27,11 +27,9 @@ const DECIMAL_PLACES = 2;
 
 export default {
   name: "TimeConverter",
-  props: {
-    msg: String
-  },
   data: function() {
     return {
+      msg: "Time Converter",
       input: "",
       selection: SELECTION_HOUR
     };
@@ -40,7 +38,7 @@ export default {
     seconds: function() {
       return this.toSeconds();
     },
-    format: function() {
+    conversion: function() {
       const seconds = this.seconds % FIXED_TIME_UNIT;
       let minutes = Math.floor(this.seconds / FIXED_TIME_UNIT);
       const hours = Math.floor(minutes / FIXED_TIME_UNIT);
@@ -78,17 +76,4 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
