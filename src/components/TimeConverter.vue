@@ -10,9 +10,10 @@
         placeholder="Value"
         v-model.number="input"
       />
-      <small id="valueHelp" class="form-text text-muted"
-        >Enter a value, and select the corresponding unit of time.</small
-      >
+      <small
+        id="valueHelp"
+        class="form-text text-muted"
+      >Enter a value, and select the corresponding unit of time.</small>
     </div>
     <div class="form-group">
       <label for="unitSelection">Select Time-Unit</label>
@@ -23,26 +24,26 @@
         <option>round</option>
       </select>
     </div>
-    <p v-if="conversion">{{ conversion }}</p>
+    <!-- <p v-if="conversion">{{ conversion }}</p> -->
     <p v-if="rounds">{{ rounds }}</p>
   </div>
 </template>
 
 <script>
-const SELECTION_HOUR = 'hour';
-const SELECTION_MINUTE = 'minute';
-const SELECTION_ROUND = 'round';
+const SELECTION_HOUR = "hour";
+const SELECTION_MINUTE = "minute";
+const SELECTION_ROUND = "round";
 const FIXED_TIME_UNIT = 60;
 const SECONDS_PER_ROUND = 6;
 const DECIMAL_PLACES = 2;
 
 export default {
-  name: 'TimeConverter',
+  name: "TimeConverter",
   data: function() {
     return {
-      msg: 'Time Converter',
-      input: '',
-      selection: SELECTION_HOUR,
+      msg: "time converter",
+      input: "",
+      selection: SELECTION_HOUR
     };
   },
   computed: {
@@ -64,7 +65,7 @@ export default {
         fixed = this.seconds / SECONDS_PER_ROUND;
       }
       return `${fixed} round(s)`;
-    },
+    }
   },
   methods: {
     toSeconds() {
@@ -81,8 +82,8 @@ export default {
         default:
           return Math.floor(this.input);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
