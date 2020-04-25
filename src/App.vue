@@ -8,12 +8,10 @@
       </div>
       <div class="row">
         <div class="col-md">
-          COL 1
           <AddCombatantComponent />
         </div>
-        <div class="col-md">COL 2</div>
+        <div class="col-md"></div>
         <div class="col-md">
-          COL 3
           <TimeConverter />
         </div>
       </div>
