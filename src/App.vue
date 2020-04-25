@@ -9,10 +9,9 @@
       <div class="row">
         <div class="col-md">
           COL 1
+          <AddCombatantComponent />
         </div>
-        <div class="col-md">
-          COL 2
-        </div>
+        <div class="col-md">COL 2</div>
         <div class="col-md">
           COL 3
           <TimeConverter />
@@ -23,15 +22,17 @@
 </template>
 
 <script>
-import TimeConverter from './components/TimeConverter.vue';
-import HeaderComponent from './components/HeaderComponent.vue';
+import TimeConverter from "./components/TimeConverter.vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import AddCombatantComponent from "./components/AddCombatantComponent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TimeConverter,
     HeaderComponent,
-  },
+    AddCombatantComponent
+  }
 };
 </script>
 
