@@ -120,7 +120,6 @@ export default {
       this.initiative = this.init().initiative;
       this.ac = this.init().ac;
       this.pp = this.init().pp;
-      this.isNpc = this.init().isNpc;
     }
   }
 };
