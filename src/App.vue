@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <HeaderComponent />
+          <header-component />
         </div>
       </div>
       <div class="row">
         <div class="col-md">
-          <AddCombatantComponent />
+          <add-combatant @add-combatant="add" />
         </div>
-        <div class="col-md"></div>
         <div class="col-md">
-          <TimeConverter />
+          <combatant-list v-bind:combatants="combatants" />
+        </div>
+        <div class="col-md">
+          <time-converter />
         </div>
       </div>
     </div>
@@ -21,29 +23,49 @@
 
 <script>
 import TimeConverter from "./components/TimeConverter.vue";
-import HeaderComponent from "./components/HeaderComponent.vue";
-import AddCombatantComponent from "./components/AddCombatantComponent.vue";
+import HeaderComponent from "./components/Header.vue";
+import AddCombatant from "./components/AddCombatantComponent.vue";
+import CombatantList from "./components/CombatantList.vue";
 
 export default {
   name: "App",
   components: {
     TimeConverter,
     HeaderComponent,
-    AddCombatantComponent
+    AddCombatant,
+    CombatantList
+  },
+  data: function() {
+    return {
+      combatants: [
+        {
+          name: "test1",
+          hp: "20",
+          ac: "11",
+          pp: "14",
+          isNpc: false
+        }
+      ]
+    };
+  },
+  methods: {
+    add(combatant) {
+      this.combatants.push(combatant);
+    }
   }
 };
 </script>
 
 <style>
 #app {
-  font-family: sans-serif;
+  font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
 .col,
 .col-md {
-  border: 1px dotted #2c3e50;
+  border: 1px solid #8295a8;
 }
 div h3 {
   text-align: left;

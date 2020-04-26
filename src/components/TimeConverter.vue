@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>{{ msg }}</h3>
+    <h5>{{ msg }}</h5>
     <div class="form-group">
       <input
         type="number"
