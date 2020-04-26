@@ -24,28 +24,40 @@
     </div>
     <!-- monster / character input form -->
     <div v-if="displayForm">
+      <div class="d-flex flex-column justify-content-around">
+        <span
+          class="badge"
+          :class="isNpc ? 'badge-danger' : 'badge-primary'"
+        >{{ isNpc ? 'fill out monster details' : 'fill out hero details' }}</span>
+      </div>
       <form class="margin" v-on:submit.prevent="addCombatant">
         <div class="form-group row">
-          <label for="name" class="col-md-4 col-form-label">name</label>
-          <div class="col-md-8">
+          <label for="name" class="col-lg-4 col-form-label">name</label>
+          <div class="col-lg-8">
             <input type="text" class="form-control" id="name" v-model="name" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="hp" class="col-md-8 col-form-label">hit points</label>
-          <div class="col-md-4">
+          <label for="hp" class="col-lg-7 col-form-label">hit points</label>
+          <div class="col-lg-5">
             <input type="number" class="form-control" id="hp" v-model.number="hp" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="ac" class="col-md-8 col-form-label">armor class</label>
-          <div class="col-md-4">
+          <label for="ac" class="col-lg-7 col-form-label">armor class</label>
+          <div class="col-lg-5">
             <input type="number" class="form-control" id="ac" v-model.number="ac" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="pp" class="col-md-8 col-form-label">passive perception</label>
-          <div class="col-md-4">
+          <label for="pp" class="col-lg-7 col-form-label">initiative</label>
+          <div class="col-lg-5">
+            <input type="number" class="form-control" id="initiative" v-model.number="initiative" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="pp" class="col-lg-7 col-form-label">passive perception</label>
+          <div class="col-lg-5">
             <input type="number" class="form-control" id="pp" v-model.number="pp" />
           </div>
         </div>
@@ -77,12 +89,14 @@ export default {
     addCombatant() {
       const name = this.name;
       const hp = this.hp;
+      const initiative = this.initiative;
       const ac = this.ac;
       const pp = this.pp;
       const isNpc = this.isNpc;
       this.$emit("add-combatant", {
         name,
         hp,
+        initiative,
         ac,
         pp,
         isNpc
@@ -93,6 +107,7 @@ export default {
       return {
         name: "",
         hp: "",
+        initiative: "",
         ac: "",
         pp: "",
         isNpc: false,
@@ -102,6 +117,7 @@ export default {
     reset() {
       this.name = this.init().name;
       this.hp = this.init().hp;
+      this.initiative = this.init().initiative;
       this.ac = this.init().ac;
       this.pp = this.init().pp;
       this.isNpc = this.init().isNpc;
