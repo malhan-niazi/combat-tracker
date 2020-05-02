@@ -37,16 +37,7 @@ export default {
   },
   data: function() {
     return {
-      combatants: [
-        {
-          name: "test1",
-          hp: 20,
-          initiative: 15,
-          ac: 11,
-          pp: 14,
-          isNpc: false
-        }
-      ]
+      combatants: []
     };
   },
   methods: {
