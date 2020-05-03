@@ -39,20 +39,36 @@ export default {
     return {
       combatants: [
         {
-          name: "villain",
-          hp: 20,
-          ac: 18,
-          initiative: 10,
-          pp: 14,
+          name: "jack",
+          hp: 2,
+          ac: 2,
+          initiative: 2,
+          pp: 2,
+          isNpc: false
+        },
+        {
+          name: "jill",
+          hp: 4,
+          ac: 4,
+          initiative: 4,
+          pp: 4,
+          isNpc: false
+        },
+        {
+          name: "john",
+          hp: 3,
+          ac: 3,
+          initiative: 3,
+          pp: 3,
           isNpc: true
         },
         {
-          name: "hero",
-          hp: 20,
-          ac: 18,
-          initiative: 10,
-          pp: 14,
-          isNpc: false
+          name: "jen",
+          hp: 1,
+          ac: 1,
+          initiative: 1,
+          pp: 1,
+          isNpc: true
         }
       ]
     };

@@ -1,18 +1,26 @@
 <template>
   <div>
     <h5>combatants</h5>
-    <div>
-      <div class="row">
-        <div class="col">name</div>
-        <div class="col">hp</div>
-        <div class="col">ac</div>
-        <div class="col">init</div>
-        <div class="col">pp</div>
-      </div>
-      <div v-for="(combatant, index) in combatants" :key="index">
-        <combatant-item v-bind:combatant="combatant"></combatant-item>
-      </div>
-    </div>
+    <table class="table table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">hp</th>
+          <th scope="col">ac</th>
+          <th scope="col">
+            <button class="btn btn-sm btn-block btn-warning" @click="sortByInitiative">init</button>
+          </th>
+          <th scope="col">perc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <combatant-item
+          v-for="(combatant, index) in combatants"
+          :key="index"
+          v-bind:combatant="combatant"
+        ></combatant-item>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -24,9 +32,31 @@ export default {
   components: {
     CombatantItem
   },
-  props: ["combatants"]
+  data() {
+    return {
+      sortDesc: true
+    };
+  },
+  props: ["combatants"],
+  methods: {
+    sortByInitiative() {
+      if (this.sortDesc) {
+        this.combatants.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
+      } else {
+        this.combatants.sort((a, b) => (a.initiative > b.initiative ? 1 : -1));
+      }
+      this.sortDesc = !this.sortDesc;
+    }
+  }
 };
 </script>
 
 <style lang="css" scoped>
+.white {
+  color: #fff;
+}
+.btn-warning {
+  background-color: #f6e58d;
+  border-color: #f6e58d;
+}
 </style>
