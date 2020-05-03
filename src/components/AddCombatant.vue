@@ -11,9 +11,6 @@
           @click="displayForm = !displayForm; isNpc = false"
         >add character</button>
       </div>
-      <div class="d-flex flex-column justify-content-around">
-        <span class="badge badge-light">or</span>
-      </div>
       <div>
         <button
           type="button"
@@ -32,33 +29,38 @@
       </div>
       <form class="margin" v-on:submit.prevent="addCombatant">
         <div class="form-group row">
-          <label for="name" class="col-lg-4 col-form-label">name</label>
+          <label for="name" class="col-lg-4 col-form-label col-form-label-sm">name</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="name" v-model="name" />
+            <input type="text" class="form-control form-control-sm" id="name" v-model="name" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="hp" class="col-lg-7 col-form-label">hit points</label>
+          <label for="hp" class="col-lg-7 col-form-label col-form-label-sm">hit points</label>
           <div class="col-lg-5">
-            <input type="number" class="form-control" id="hp" v-model.number="hp" />
+            <input type="number" class="form-control form-control-sm" id="hp" v-model.number="hp" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="ac" class="col-lg-7 col-form-label">armor class</label>
+          <label for="ac" class="col-lg-7 col-form-label col-form-label-sm">armor class</label>
           <div class="col-lg-5">
-            <input type="number" class="form-control" id="ac" v-model.number="ac" />
+            <input type="number" class="form-control form-control-sm" id="ac" v-model.number="ac" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="pp" class="col-lg-7 col-form-label">initiative</label>
+          <label for="pp" class="col-lg-7 col-form-label col-form-label-sm">initiative</label>
           <div class="col-lg-5">
-            <input type="number" class="form-control" id="initiative" v-model.number="initiative" />
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              id="initiative"
+              v-model.number="initiative"
+            />
           </div>
         </div>
         <div class="form-group row">
-          <label for="pp" class="col-lg-7 col-form-label">passive perception</label>
+          <label for="pp" class="col-lg-7 col-form-label col-form-label-sm">passive perception</label>
           <div class="col-lg-5">
-            <input type="number" class="form-control" id="pp" v-model.number="pp" />
+            <input type="number" class="form-control form-control-sm" id="pp" v-model.number="pp" />
           </div>
         </div>
         <input type="hidden" id="type" name="type" :value="isNpc" />
@@ -126,4 +128,19 @@ export default {
 </script>
 
 <style scoped>
+.btn-primary,
+.badge-primary {
+  background-color: #22a6b3;
+  border-color: #22a6b3;
+}
+.btn-danger,
+.badge-danger {
+  background-color: #eb4d4b;
+  border-color: #eb4d4b;
+}
+.btn-warning {
+  background-color: #f0932b;
+  border-color: #f0932b;
+  color: #fff;
+}
 </style>

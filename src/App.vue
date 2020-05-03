@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container-fluid">
+    <div class="container-fluid bg-flat-dark">
       <div class="row">
         <div class="col">
           <header-component />
@@ -14,7 +14,7 @@
           <combatant-list v-bind:combatants="combatants" />
         </div>
         <div class="col-sm-3">
-          <time-converter />
+          <!-- <time-converter /> -->
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import TimeConverter from "./components/TimeConverter.vue";
+// import TimeConverter from "./components/TimeConverter.vue";
 import HeaderComponent from "./components/Header.vue";
 import AddCombatant from "./components/AddCombatant.vue";
 import CombatantList from "./components/CombatantList.vue";
@@ -30,14 +30,31 @@ import CombatantList from "./components/CombatantList.vue";
 export default {
   name: "App",
   components: {
-    TimeConverter,
+    // TimeConverter,
     HeaderComponent,
     AddCombatant,
     CombatantList
   },
   data: function() {
     return {
-      combatants: []
+      combatants: [
+        {
+          name: "villain",
+          hp: 20,
+          ac: 18,
+          initiative: 10,
+          pp: 14,
+          isNpc: true
+        },
+        {
+          name: "hero",
+          hp: 20,
+          ac: 18,
+          initiative: 10,
+          pp: 14,
+          isNpc: false
+        }
+      ]
     };
   },
   methods: {
@@ -49,11 +66,15 @@ export default {
 </script>
 
 <style>
+body,
+html {
+  background-color: #535c68 !important;
+}
 #app {
-  font-family: serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #fff;
 }
 /* .col,
 .col-sm {
