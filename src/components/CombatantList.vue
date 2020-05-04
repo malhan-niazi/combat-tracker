@@ -1,16 +1,18 @@
 <template>
   <div>
     <h5>combatants</h5>
-    <table class="table table-sm">
-      <thead class="thead-dark">
+    <table>
+      <thead>
         <tr>
-          <th scope="col">name</th>
-          <th scope="col">hp</th>
-          <th scope="col">ac</th>
-          <th scope="col">
-            <button class="btn btn-sm btn-block btn-warning" @click="sortByInitiative">init</button>
+          <th>name</th>
+          <th>hp</th>
+          <th>ac</th>
+          <th>
+            <button class="btn-flat btn-small" @click="sortByInitiative">
+              init
+            </button>
           </th>
-          <th scope="col">perc</th>
+          <th>perc</th>
         </tr>
       </thead>
       <tbody>
@@ -25,19 +27,19 @@
 </template>
 
 <script>
-import CombatantItem from "./CombatantItem.vue";
+import CombatantItem from './CombatantItem.vue';
 
 export default {
-  name: "combatant-list",
+  name: 'combatant-list',
   components: {
-    CombatantItem
+    CombatantItem,
   },
   data() {
     return {
-      sortDesc: true
+      sortDesc: true,
     };
   },
-  props: ["combatants"],
+  props: ['combatants'],
   methods: {
     sortByInitiative() {
       if (this.sortDesc) {
@@ -46,17 +48,9 @@ export default {
         this.combatants.sort((a, b) => (a.initiative > b.initiative ? 1 : -1));
       }
       this.sortDesc = !this.sortDesc;
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style lang="css" scoped>
-.white {
-  color: #fff;
-}
-.btn-warning {
-  background-color: #f6e58d;
-  border-color: #f6e58d;
-}
-</style>
+<style lang="css" scoped></style>

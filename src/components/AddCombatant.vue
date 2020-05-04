@@ -1,89 +1,114 @@
 <template>
   <div>
-    <div>
-      <h5>add combatants</h5>
-    </div>
-    <div v-if="!displayForm" class="d-flex flex-column justify-content-around">
-      <div>
-        <button
-          type="button"
-          class="btn btn-primary btn-block"
-          @click="displayForm = !displayForm; isNpc = false"
-        >add character</button>
+    <div class="row">
+      <div class="col">
+        <h5>add combatants</h5>
       </div>
-      <div>
-        <button
-          type="button"
-          class="btn btn-danger btn-block"
-          @click="displayForm = !displayForm; isNpc = true"
-        >add monster</button>
+    </div>
+    <div v-if="!displayForm">
+      <div class="row">
+        <div class="col">
+          <button
+            type="button"
+            class="btn-small"
+            @click="
+              displayForm = !displayForm;
+              isNpc = false;
+            "
+          >
+            add character
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button
+            type="button"
+            class="btn-small"
+            @click="
+              displayForm = !displayForm;
+              isNpc = true;
+            "
+          >
+            add monster
+          </button>
+        </div>
       </div>
     </div>
     <!-- monster / character input form -->
-    <div v-if="displayForm">
-      <div class="d-flex flex-column justify-content-around">
-        <span
-          class="badge"
-          :class="isNpc ? 'badge-danger' : 'badge-primary'"
-        >{{ isNpc ? 'fill out monster details' : 'fill out hero details' }}</span>
+    <div class="row" v-if="displayForm">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <span :class="isNpc ? 'badge-danger' : 'badge-primary'">{{
+              isNpc ? 'fill out monster details' : 'fill out hero details'
+            }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <form v-on:submit.prevent="addCombatant">
+              <div class="row">
+                <div class="input-field col">
+                  <input id="name" type="text" v-model="name" />
+                  <label for="name">name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col">
+                  <input id="hp" type="text" v-model.number="hp" />
+                  <label for="hp">hit points</label>
+                </div>
+              </div>
+              <div class="">
+                <label for="ac" class="">armor class</label>
+                <div class="">
+                  <input type="number" class="" id="ac" v-model.number="ac" />
+                </div>
+              </div>
+              <div class="">
+                <label for="pp" class="">initiative</label>
+                <div class="">
+                  <input
+                    type="number"
+                    class=""
+                    id="initiative"
+                    v-model.number="initiative"
+                  />
+                </div>
+              </div>
+              <div class="">
+                <label for="pp" class="m">passive perception</label>
+                <div class="">
+                  <input type="number" class="" id="pp" v-model.number="pp" />
+                </div>
+              </div>
+              <input type="hidden" id="type" name="type" :value="isNpc" />
+              <div class="">
+                <div class="">
+                  <button type="submit" class="btn-small">add</button>
+                </div>
+                <div class="">
+                  <button
+                    type="submit"
+                    class="btn-small"
+                    @click="displayForm = !displayForm"
+                  >
+                    cancel
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <form class="margin" v-on:submit.prevent="addCombatant">
-        <div class="form-group row">
-          <label for="name" class="col-lg-4 col-form-label col-form-label-sm">name</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control form-control-sm" id="name" v-model="name" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="hp" class="col-lg-7 col-form-label col-form-label-sm">hit points</label>
-          <div class="col-lg-5">
-            <input type="number" class="form-control form-control-sm" id="hp" v-model.number="hp" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="ac" class="col-lg-7 col-form-label col-form-label-sm">armor class</label>
-          <div class="col-lg-5">
-            <input type="number" class="form-control form-control-sm" id="ac" v-model.number="ac" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="pp" class="col-lg-7 col-form-label col-form-label-sm">initiative</label>
-          <div class="col-lg-5">
-            <input
-              type="number"
-              class="form-control form-control-sm"
-              id="initiative"
-              v-model.number="initiative"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="pp" class="col-lg-7 col-form-label col-form-label-sm">passive perception</label>
-          <div class="col-lg-5">
-            <input type="number" class="form-control form-control-sm" id="pp" v-model.number="pp" />
-          </div>
-        </div>
-        <input type="hidden" id="type" name="type" :value="isNpc" />
-        <div class="form-group row">
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">add</button>
-          </div>
-          <div class="col-12">
-            <button
-              type="submit"
-              class="btn btn-warning btn-block"
-              @click="displayForm = !displayForm"
-            >cancel</button>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "AddCombatantComponent",
+  name: 'AddCombatantComponent',
   data: function() {
     return this.init();
   },
@@ -95,25 +120,25 @@ export default {
       const ac = this.ac;
       const pp = this.pp;
       const isNpc = this.isNpc;
-      this.$emit("add-combatant", {
+      this.$emit('add-combatant', {
         name,
         hp,
         initiative,
         ac,
         pp,
-        isNpc
+        isNpc,
       });
       this.reset();
     },
     init() {
       return {
-        name: "",
-        hp: "",
-        initiative: "",
-        ac: "",
-        pp: "",
+        name: '',
+        hp: '',
+        initiative: '',
+        ac: '',
+        pp: '',
         isNpc: false,
-        displayForm: false
+        displayForm: false,
       };
     },
     reset() {
@@ -122,25 +147,9 @@ export default {
       this.initiative = this.init().initiative;
       this.ac = this.init().ac;
       this.pp = this.init().pp;
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style scoped>
-.btn-primary,
-.badge-primary {
-  background-color: #22a6b3;
-  border-color: #22a6b3;
-}
-.btn-danger,
-.badge-danger {
-  background-color: #eb4d4b;
-  border-color: #eb4d4b;
-}
-.btn-warning {
-  background-color: #f0932b;
-  border-color: #f0932b;
-  color: #fff;
-}
-</style>
+<style scoped></style>
