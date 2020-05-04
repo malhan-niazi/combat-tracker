@@ -3,7 +3,7 @@
     <td>
       <input
         type="text"
-        id="name"
+        :id="`${combatant.name}`"
         v-model="combatant.name"
         :class="combatant.isNpc ? 'red-text' : 'blue-text'"
       />

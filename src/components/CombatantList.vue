@@ -18,6 +18,7 @@
           v-for="(combatant, index) in combatants"
           :key="index"
           v-bind:combatant="combatant"
+          v-bind:index="index"
         ></combatant-item>
       </tbody>
     </table>

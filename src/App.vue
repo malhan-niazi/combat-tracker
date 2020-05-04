@@ -3,13 +3,13 @@
     <div class="container-fluid">
       <header-component />
       <div class="row">
-        <div class="col s4 m3 l2">
+        <div class="col s12 m4 l3">
           <add-combatant @add-combatant="add" />
         </div>
-        <div class="col s4 m3 l4">
+        <div class="col s12 m4 l4">
           <combatant-list v-bind:combatants="combatants" />
         </div>
-        <div class="col s4 m6 l6">
+        <div class="col s12 m4 l5">
           <!-- <time-converter /> -->
         </div>
       </div>
