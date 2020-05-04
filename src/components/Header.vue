@@ -1,12 +1,10 @@
 <template>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper grey darken-3">
         <div class="row">
           <div class="col">
-            <a href="#" class="brand-logo"
-              ><i class="material-icons">casino</i>combat tracker</a
-            >
+            <a href="#" class="brand-logo">combat tracker</a>
           </div>
         </div>
       </div>

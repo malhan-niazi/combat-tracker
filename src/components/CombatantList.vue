@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <table>
+  <div class="row">
+    <table class="col s12">
       <thead>
         <tr>
           <th>name</th>
@@ -25,19 +25,19 @@
 </template>
 
 <script>
-import CombatantItem from './CombatantItem.vue';
+import CombatantItem from "./CombatantItem.vue";
 
 export default {
-  name: 'combatant-list',
+  name: "combatant-list",
   components: {
-    CombatantItem,
+    CombatantItem
   },
-  props: ['combatants'],
+  props: ["combatants"],
   methods: {
     sortDesc() {
       this.combatants.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
-    },
-  },
+    }
+  }
 };
 </script>
 

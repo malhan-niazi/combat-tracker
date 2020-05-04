@@ -3,30 +3,28 @@
     <div class="row" v-if="!displayForm">
       <div class="col s12">
         <div class="row">
-          <div class="col s12">
+          <div class="col s6">
             <button
               type="button"
-              class="btn-small btn-block"
+              class="btn btn-block blue"
               @click="
                 displayForm = !displayForm;
                 isNpc = false;
               "
             >
-              add character
+              <i class="tiny material-icons left">add</i> player
             </button>
           </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
+          <div class="col s6">
             <button
               type="button"
-              class="btn-small btn-block red"
+              class="btn btn-block red"
               @click="
                 displayForm = !displayForm;
                 isNpc = true;
               "
             >
-              add monster
+              <i class="tiny material-icons left">add</i>monster
             </button>
           </div>
         </div>
@@ -64,18 +62,23 @@
         <input type="hidden" id="type" name="type" :value="isNpc" />
         <div class="row">
           <div class="col s6">
-            <button class="btn-small btn-block" type="submit" name="add">
-              add
+            <button
+              class="btn-small btn-block"
+              type="submit"
+              name="add"
+              :class="isNpc ? 'red' : 'blue'"
+            >
+              <i class="tiny material-icons left">check</i> ok
             </button>
           </div>
           <div class="col s6">
             <button
               type="submit"
-              class="btn-small btn-block orange"
+              class="btn-small btn-block amber darken-1"
               @click="displayForm = !displayForm"
               name="cancel"
             >
-              cancel
+              <i class="material-icons left">clear</i> cancel
             </button>
           </div>
         </div>
@@ -86,7 +89,7 @@
 
 <script>
 export default {
-  name: 'AddCombatantComponent',
+  name: "AddCombatantComponent",
   data: function() {
     return this.init();
   },
@@ -98,25 +101,25 @@ export default {
       const ac = this.ac;
       const pp = this.pp;
       const isNpc = this.isNpc;
-      this.$emit('add-combatant', {
+      this.$emit("add-combatant", {
         name,
         hp,
         initiative,
         ac,
         pp,
-        isNpc,
+        isNpc
       });
       this.reset();
     },
     init() {
       return {
-        name: '',
-        hp: '',
-        initiative: '',
-        ac: '',
-        pp: '',
+        name: "",
+        hp: "",
+        initiative: "",
+        ac: "",
+        pp: "",
         isNpc: false,
-        displayForm: false,
+        displayForm: false
       };
     },
     reset() {
@@ -125,8 +128,8 @@ export default {
       this.initiative = this.init().initiative;
       this.ac = this.init().ac;
       this.pp = this.init().pp;
-    },
-  },
+    }
+  }
 };
 </script>
 

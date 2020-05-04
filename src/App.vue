@@ -19,61 +19,61 @@
 
 <script>
 // import TimeConverter from "./components/TimeConverter.vue";
-import HeaderComponent from './components/Header.vue';
-import AddCombatant from './components/AddCombatant.vue';
-import CombatantList from './components/CombatantList.vue';
+import HeaderComponent from "./components/Header.vue";
+import AddCombatant from "./components/AddCombatant.vue";
+import CombatantList from "./components/CombatantList.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     // TimeConverter,
     HeaderComponent,
     AddCombatant,
-    CombatantList,
+    CombatantList
   },
   data: function() {
     return {
       combatants: [
         {
-          name: 'jack',
+          name: "jack",
           hp: 2,
           ac: 2,
           initiative: 2,
           pp: 2,
-          isNpc: false,
+          isNpc: false
         },
         {
-          name: 'jill',
+          name: "jill",
           hp: 4,
           ac: 4,
           initiative: 4,
           pp: 4,
-          isNpc: false,
+          isNpc: false
         },
         {
-          name: 'john',
+          name: "john",
           hp: 3,
           ac: 3,
           initiative: 3,
           pp: 3,
-          isNpc: true,
+          isNpc: true
         },
         {
-          name: 'jen',
+          name: "jen",
           hp: 1,
           ac: 1,
           initiative: 1,
           pp: 1,
-          isNpc: true,
-        },
-      ],
+          isNpc: true
+        }
+      ]
     };
   },
   methods: {
     add(combatant) {
       this.combatants.push(combatant);
-    },
-  },
+    }
+  }
 };
 </script>
 
