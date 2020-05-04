@@ -9,16 +9,16 @@
       />
     </td>
     <td>
-      <input type="number" id="hp" v-model.number="combatant.hp" />
+      <input type="number" id="hitPoints" v-model.number="combatant.hitPoints" />
     </td>
     <td>
-      <input type="number" id="ac" v-model.number="combatant.ac" />
+      <input type="number" id="armorClass" v-model.number="combatant.armorClass" />
     </td>
     <td>
-      <input type="number" id="init" v-model.number="combatant.initiative" />
+      <input type="number" id="passivePerception" v-model.number="combatant.passivePerception" />
     </td>
     <td>
-      <input type="number" id="pp" v-model.number="combatant.pp" />
+      <input type="number" id="initiative" v-model.number="combatant.initiative" />
     </td>
   </tr>
 </template>

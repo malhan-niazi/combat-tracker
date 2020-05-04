@@ -9,12 +9,12 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="hp" type="number" v-model.number="hp" />
-          <label for="hp">hit points</label>
+          <input id="hitPoints" type="number" v-model.number="hitPoints" />
+          <label for="hitPoints">hit points</label>
         </div>
         <div class="input-field col s6">
-          <input id="ac" type="number" v-model.number="ac" />
-          <label for="ac">armor class</label>
+          <input id="armorClass" type="number" v-model.number="armorClass" />
+          <label for="armorClass">armor class</label>
         </div>
       </div>
       <div class="row">
@@ -23,8 +23,8 @@
           <label for="init">initiative</label>
         </div>
         <div class="input-field col s6">
-          <input id="pp" type="number" v-model.number="pp" />
-          <label for="pp">passive perception</label>
+          <input id="passivePerception" type="number" v-model.number="passivePerception" />
+          <label for="passivePerception">passive perception</label>
         </div>
       </div>
       <div class="row">
@@ -70,34 +70,34 @@ export default {
     },
     addCombatant() {
       const name = this.name;
-      const hp = this.hp;
+      const hitPoints = this.hitPoints;
       const initiative = this.initiative;
-      const ac = this.ac;
-      const pp = this.pp;
+      const armorClass = this.armorClass;
+      const passivePerception = this.passivePerception;
       this.$emit("add-combatant", {
         name,
-        hp,
+        hitPoints,
         initiative,
-        ac,
-        pp
+        armorClass,
+        passivePerception
       });
       this.reset();
     },
     init() {
       return {
         name: "",
-        hp: "",
+        hitPoints: "",
         initiative: "",
-        ac: "",
-        pp: ""
+        armorClass: "",
+        passivePerception: ""
       };
     },
     reset() {
       this.name = this.init().name;
-      this.hp = this.init().hp;
+      this.hitPoints = this.init().hitPoints;
       this.initiative = this.init().initiative;
-      this.ac = this.init().ac;
-      this.pp = this.init().pp;
+      this.armorClass = this.init().armorClass;
+      this.passivePerception = this.init().passivePerception;
     }
   }
 };

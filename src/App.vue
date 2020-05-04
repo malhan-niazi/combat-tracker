@@ -35,35 +35,35 @@ export default {
     return {
       combatants: [
         {
-          name: "jack",
-          hp: 2,
-          ac: 2,
-          initiative: 2,
-          pp: 2,
+          name: "human",
+          hitPoints: 24,
+          armorClass: 14,
+          initiative: 12,
+          passivePerception: 14,
           isNpc: false
         },
         {
-          name: "jill",
-          hp: 4,
-          ac: 4,
-          initiative: 4,
-          pp: 4,
+          name: "dwarf",
+          hitPoints: 32,
+          armorClass: 15,
+          initiative: 13,
+          passivePerception: 10,
           isNpc: false
         },
         {
-          name: "john",
-          hp: 3,
-          ac: 3,
-          initiative: 3,
-          pp: 3,
-          isNpc: true
+          name: "elf",
+          hitPoints: 20,
+          armorClass: 17,
+          initiative: 18,
+          passivePerception: 14,
+          isNpc: false
         },
         {
-          name: "jen",
-          hp: 1,
-          ac: 1,
-          initiative: 1,
-          pp: 1,
+          name: "dragon",
+          hitPoints: 86,
+          armorClass: 18,
+          initiative: 14,
+          passivePerception: 18,
           isNpc: true
         }
       ]

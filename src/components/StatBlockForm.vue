@@ -9,22 +9,12 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="size" type="text" v-model="size" />
-          <label for="size">size</label>
+          <input id="hitPoints" type="number" v-model.number="hitPoints" />
+          <label for="hitPoints">hit points</label>
         </div>
         <div class="input-field col s6">
-          <input id="ac" type="number" v-model.number="ac" />
-          <label for="ac">armor class</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="hp" type="number" v-model.number="hp" />
-          <label for="hp">hit points</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="speed" type="number" v-model.number="speed" />
-          <label for="speed">speed</label>
+          <input id="armorClass" type="number" v-model.number="armorClass" />
+          <label for="armorClass">armor class</label>
         </div>
       </div>
       <div class="row">
@@ -33,33 +23,50 @@
           <label for="init">initiative</label>
         </div>
         <div class="input-field col s6">
-          <input id="pp" type="number" v-model.number="pp" />
-          <label for="pp">passive perception</label>
+          <input id="passivePerception" type="number" v-model.number="passivePerception" />
+          <label for="passivePerception">passive perception</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <select class="browser-default" v-model="size">
+            <option value disabled selected>select size</option>
+            <option value="ti">tiny</option>
+            <option value="sm">small</option>
+            <option value="md">medium</option>
+            <option value="lg">large</option>
+            <option value="hu">huge</option>
+            <option value="ga">gargantuan</option>
+          </select>
+        </div>
+        <div class="input-field col s6">
+          <input id="speed" type="number" v-model.number="speed" />
+          <label for="speed">speed</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s2">
-          <input id="str" type="number" v-model.number="str" />
+          <input id="str" type="number" v-model.number="abilityScore.str" />
           <label for="instrit">str</label>
         </div>
         <div class="input-field col s2">
-          <input id="dex" type="number" v-model.number="dex" />
+          <input id="dex" type="number" v-model.number="abilityScore.dex" />
           <label for="dex">dex</label>
         </div>
         <div class="input-field col s2">
-          <input id="con" type="number" v-model.number="con" />
+          <input id="con" type="number" v-model.number="abilityScore.con" />
           <label for="con">con</label>
         </div>
         <div class="input-field col s2">
-          <input id="int" type="number" v-model.number="int" />
+          <input id="int" type="number" v-model.number="abilityScore.int" />
           <label for="int">int</label>
         </div>
         <div class="input-field col s2">
-          <input id="wis" type="number" v-model.number="wis" />
+          <input id="wis" type="number" v-model.number="abilityScore.wis" />
           <label for="wis">wis</label>
         </div>
         <div class="input-field col s2">
-          <input id="cha" type="number" v-model.number="cha" />
+          <input id="cha" type="number" v-model.number="abilityScore.cha" />
           <label for="cha">cha</label>
         </div>
       </div>
@@ -106,34 +113,53 @@ export default {
     },
     addCombatant() {
       const name = this.name;
-      const hp = this.hp;
+      const hitPoints = this.hitPoints;
       const initiative = this.initiative;
-      const ac = this.ac;
-      const pp = this.pp;
+      const armorClass = this.armorClass;
+      const passivePerception = this.passivePerception;
+      const size = this.size;
+      const speed = this.speed;
+      const abilityScore = this.abilityScore;
       this.$emit("add-combatant", {
         name,
-        hp,
+        hitPoints,
         initiative,
-        ac,
-        pp
+        armorClass,
+        passivePerception,
+        size,
+        speed,
+        abilityScore
       });
       this.reset();
     },
     init() {
       return {
         name: "",
-        hp: "",
+        hitPoints: "",
         initiative: "",
-        ac: "",
-        pp: ""
+        armorClass: "",
+        passivePerception: "",
+        size: "",
+        speed: "",
+        abilityScore: {
+          str: "",
+          dex: "",
+          con: "",
+          int: "",
+          wis: "",
+          cha: ""
+        }
       };
     },
     reset() {
       this.name = this.init().name;
-      this.hp = this.init().hp;
+      this.hitPoints = this.init().hitPoints;
       this.initiative = this.init().initiative;
-      this.ac = this.init().ac;
-      this.pp = this.init().pp;
+      this.armorClass = this.init().armorClass;
+      this.passivePerception = this.init().passivePerception;
+      this.size = this.init().size;
+      this.speed = this.init().speed;
+      this.abilityScore = this.init().abilityScore;
     }
   }
 };

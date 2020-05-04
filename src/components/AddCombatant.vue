@@ -34,10 +34,10 @@
     <div class="row" v-if="displayForm">
       <div class="col">
         <div class="row">
-          <div class="col">
+          <div class="col s12 left-align">
             <label>
-              <input type="checkbox" class="filled-in right-align" v-model="makeStatBlock" />
-              <span>Create Stat Block</span>
+              <input type="checkbox" class="filled-in" v-model="makeStatBlock" />
+              <span>Stat Block</span>
             </label>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default {
       return {
         isNpc: false,
         displayForm: true,
-        makeStatBlock: true
+        makeStatBlock: false
       };
     }
   }

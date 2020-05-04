@@ -4,7 +4,7 @@
       <div class="nav-wrapper grey darken-3">
         <div class="row">
           <div class="col">
-            <a href="#" class="brand-logo">combat tracker</a>
+            <a href="#" class="brand-logo">Combat Tracker</a>
           </div>
         </div>
       </div>

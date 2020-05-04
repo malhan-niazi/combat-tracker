@@ -3,13 +3,13 @@
     <table class="col s12">
       <thead>
         <tr>
-          <th>name</th>
-          <th>hp</th>
-          <th>ac</th>
-          <th>perc</th>
+          <th>Name</th>
+          <th>HP</th>
+          <th>AC</th>
+          <th>Pass. Perc.</th>
           <th @click="sortDesc">
-            init
-            <i class="tiny material-icons">sort</i>
+            Init.
+            <i class="tiny material-icons right">sort</i>
           </th>
         </tr>
       </thead>
