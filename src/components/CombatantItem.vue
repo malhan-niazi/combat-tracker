@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <th :class="combatant.isNpc ? 'villain' : 'hero'">{{ combatant.name }}</th>
+    <td :class="combatant.isNpc ? 'villain' : 'hero'">{{ combatant.name }}</td>
     <td>
       <input type="number" id="hp" v-model="combatant.hp" />
     </td>

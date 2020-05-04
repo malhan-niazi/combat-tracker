@@ -1,18 +1,17 @@
 <template>
   <div>
-    <h5>combatants</h5>
+    <h5 class="center-align">combatants</h5>
     <table>
       <thead>
         <tr>
           <th>name</th>
           <th>hp</th>
           <th>ac</th>
-          <th>
-            <button class="btn-flat btn-small" @click="sortByInitiative">
-              init
-            </button>
-          </th>
           <th>perc</th>
+          <th @click="sortByInitiative">
+            init
+            <i class="tiny material-icons">sort</i>
+          </th>
         </tr>
       </thead>
       <tbody>

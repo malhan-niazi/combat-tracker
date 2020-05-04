@@ -3,13 +3,13 @@
     <div class="container-fluid">
       <header-component />
       <div class="row">
-        <div class="col s4">
+        <div class="col s4 m3 l2">
           <add-combatant @add-combatant="add" />
         </div>
-        <div class="col s4">
+        <div class="col s4 m3 l4">
           <combatant-list v-bind:combatants="combatants" />
         </div>
-        <div class="col s4">
+        <div class="col s4 m6 l6">
           <!-- <time-converter /> -->
         </div>
       </div>
@@ -81,12 +81,5 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-/* .col,
-.col-sm {
-  border: 1px solid #8295a8;
-} */
-div h3 {
-  text-align: left;
 }
 </style>

@@ -1,107 +1,85 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col">
-        <h5>add combatants</h5>
-      </div>
-    </div>
-    <div v-if="!displayForm">
-      <div class="row">
-        <div class="col">
-          <button
-            type="button"
-            class="btn-small"
-            @click="
-              displayForm = !displayForm;
-              isNpc = false;
-            "
-          >
-            add character
-          </button>
+    <div class="row" v-if="!displayForm">
+      <div class="col s12">
+        <div class="row">
+          <div class="col s12">
+            <button
+              type="button"
+              class="btn-small btn-block"
+              @click="
+                displayForm = !displayForm;
+                isNpc = false;
+              "
+            >
+              add character
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <button
-            type="button"
-            class="btn-small"
-            @click="
-              displayForm = !displayForm;
-              isNpc = true;
-            "
-          >
-            add monster
-          </button>
+        <div class="row">
+          <div class="col s12">
+            <button
+              type="button"
+              class="btn-small btn-block red"
+              @click="
+                displayForm = !displayForm;
+                isNpc = true;
+              "
+            >
+              add monster
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <!-- monster / character input form -->
     <div class="row" v-if="displayForm">
-      <div class="col">
+      <form class="col" v-on:submit.prevent="addCombatant">
         <div class="row">
-          <div class="col">
-            <span :class="isNpc ? 'badge-danger' : 'badge-primary'">{{
-              isNpc ? 'fill out monster details' : 'fill out hero details'
-            }}</span>
+          <div class="input-field col s12">
+            <input id="name" type="text" v-model="name" />
+            <label for="name">name</label>
           </div>
         </div>
         <div class="row">
-          <div class="col">
-            <form v-on:submit.prevent="addCombatant">
-              <div class="row">
-                <div class="input-field col">
-                  <input id="name" type="text" v-model="name" />
-                  <label for="name">name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col">
-                  <input id="hp" type="text" v-model.number="hp" />
-                  <label for="hp">hit points</label>
-                </div>
-              </div>
-              <div class="">
-                <label for="ac" class="">armor class</label>
-                <div class="">
-                  <input type="number" class="" id="ac" v-model.number="ac" />
-                </div>
-              </div>
-              <div class="">
-                <label for="pp" class="">initiative</label>
-                <div class="">
-                  <input
-                    type="number"
-                    class=""
-                    id="initiative"
-                    v-model.number="initiative"
-                  />
-                </div>
-              </div>
-              <div class="">
-                <label for="pp" class="m">passive perception</label>
-                <div class="">
-                  <input type="number" class="" id="pp" v-model.number="pp" />
-                </div>
-              </div>
-              <input type="hidden" id="type" name="type" :value="isNpc" />
-              <div class="">
-                <div class="">
-                  <button type="submit" class="btn-small">add</button>
-                </div>
-                <div class="">
-                  <button
-                    type="submit"
-                    class="btn-small"
-                    @click="displayForm = !displayForm"
-                  >
-                    cancel
-                  </button>
-                </div>
-              </div>
-            </form>
+          <div class="input-field col s6">
+            <input id="hp" type="number" v-model.number="hp" />
+            <label for="hp">hit points</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="ac" type="number" v-model.number="ac" />
+            <label for="ac">armor class</label>
           </div>
         </div>
-      </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="init" type="number" v-model.number="initiative" />
+            <label for="init">initiative</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="pp" type="number" v-model.number="pp" />
+            <label for="pp">passive perception</label>
+          </div>
+        </div>
+        <input type="hidden" id="type" name="type" :value="isNpc" />
+        <div class="row">
+          <div class="col s6">
+            <button class="btn-small btn-block" type="submit" name="add">
+              add
+            </button>
+          </div>
+          <div class="col s6">
+            <button
+              type="submit"
+              class="btn-small btn-block orange"
+              @click="displayForm = !displayForm"
+              name="cancel"
+            >
+              cancel
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -152,4 +130,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn-block {
+  width: 100%;
+}
+</style>
