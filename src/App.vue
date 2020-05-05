@@ -1,7 +1,7 @@
 <template>
   <div id="app">
+    <header-component />
     <div class="container-fluid">
-      <header-component />
       <div class="row">
         <div class="col s12 m12 l3">
           <add-combatant @add-combatant="add" />
