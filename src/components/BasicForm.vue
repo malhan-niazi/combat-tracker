@@ -1,28 +1,28 @@
 <template>
   <div class="row">
     <form class="col s12" v-on:submit.prevent>
-      <div class="row">
-        <div class="input-field col s12">
+      <div class="row margin-btm-none margin-top-small">
+        <div class="input-field col s12 margin-btm-none margin-top-small">
           <input id="name" type="text" v-model="name" />
           <label for="name">name</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
+      <div class="row margin-btm-none margin-top-small">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="hitPoints" type="number" v-model.number="hitPoints" />
           <label for="hitPoints">hit points</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="armorClass" type="number" v-model.number="armorClass" />
           <label for="armorClass">armor class</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
+      <div class="row margin-top-small">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="init" type="number" v-model.number="initiative" />
           <label for="init">initiative</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="passivePerception" type="number" v-model.number="passivePerception" />
           <label for="passivePerception">passive perception</label>
         </div>
@@ -103,8 +103,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .btn-block {
   width: 100%;
+}
+.margin-btm-none {
+  margin-bottom: 0;
+}
+.margin-top-small {
+  margin-top: 5px;
 }
 </style>

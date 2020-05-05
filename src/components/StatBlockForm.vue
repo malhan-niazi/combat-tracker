@@ -1,34 +1,34 @@
 <template>
   <div class="row">
     <form class="col s12" v-on:submit.prevent>
-      <div class="row">
-        <div class="input-field col s12">
+      <div class="row margin-btm-none margin-top-small">
+        <div class="input-field col s12 margin-btm-none margin-top-small">
           <input id="name" type="text" v-model="name" />
           <label for="name">name</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
+      <div class="row margin-btm-none margin-top-small">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="hitPoints" type="number" v-model.number="hitPoints" />
           <label for="hitPoints">hit points</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="armorClass" type="number" v-model.number="armorClass" />
           <label for="armorClass">armor class</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
+      <div class="row margin-btm-none margin-top-small">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="init" type="number" v-model.number="initiative" />
           <label for="init">initiative</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="passivePerception" type="number" v-model.number="passivePerception" />
           <label for="passivePerception">passive perception</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
+      <div class="row margin-btm-none margin-top-small">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <select class="browser-default" v-model="size">
             <option value disabled selected>select size</option>
             <option value="ti">tiny</option>
@@ -39,35 +39,39 @@
             <option value="ga">gargantuan</option>
           </select>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="speed" type="number" v-model.number="speed" />
           <label for="speed">speed</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s2">
-          <input id="str" type="number" v-model.number="abilityScore.str" />
-          <label for="instrit">str</label>
+      <div class="row margin-top-small">
+        <div class="col s12 m12 l6">
+          <div class="input-field col s4 m4 l4 margin-btm-none margin-top-small">
+            <input id="str" type="number" v-model.number="abilityScore.str" />
+            <label for="instrit">str</label>
+          </div>
+          <div class="input-field col s4 m4 l4 margin-btm-none margin-top-small">
+            <input id="dex" type="number" v-model.number="abilityScore.dex" />
+            <label for="dex">dex</label>
+          </div>
+          <div class="input-field col s4 m4 margin-btm-none margin-top-small">
+            <input id="con" type="number" v-model.number="abilityScore.con" />
+            <label for="con">con</label>
+          </div>
         </div>
-        <div class="input-field col s2">
-          <input id="dex" type="number" v-model.number="abilityScore.dex" />
-          <label for="dex">dex</label>
-        </div>
-        <div class="input-field col s2">
-          <input id="con" type="number" v-model.number="abilityScore.con" />
-          <label for="con">con</label>
-        </div>
-        <div class="input-field col s2">
-          <input id="int" type="number" v-model.number="abilityScore.int" />
-          <label for="int">int</label>
-        </div>
-        <div class="input-field col s2">
-          <input id="wis" type="number" v-model.number="abilityScore.wis" />
-          <label for="wis">wis</label>
-        </div>
-        <div class="input-field col s2">
-          <input id="cha" type="number" v-model.number="abilityScore.cha" />
-          <label for="cha">cha</label>
+        <div class="col s12 m12 l6">
+          <div class="input-field col s4 m4 l4 margin-btm-none margin-top-small">
+            <input id="int" type="number" v-model.number="abilityScore.int" />
+            <label for="int">int</label>
+          </div>
+          <div class="input-field col s4 m4 l4 margin-btm-none margin-top-small">
+            <input id="wis" type="number" v-model.number="abilityScore.wis" />
+            <label for="wis">wis</label>
+          </div>
+          <div class="input-field col s4 m4 l4 margin-btm-none margin-top-small">
+            <input id="cha" type="number" v-model.number="abilityScore.cha" />
+            <label for="cha">cha</label>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -165,8 +169,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .btn-block {
   width: 100%;
+}
+.margin-btm-none {
+  margin-bottom: 0;
+}
+.margin-top-small {
+  margin-top: 5px;
 }
 </style>

@@ -1,12 +1,15 @@
 <template>
   <tr>
     <td>
-      <input
-        type="text"
+      <!-- <input
         :id="`${combatant.name}`"
         v-model="combatant.name"
         :class="combatant.isNpc ? 'red-text' : 'blue-text'"
-      />
+      />-->
+      <div
+        class="name-width"
+        :class="combatant.isNpc ? 'red-text' : 'blue-text'"
+      >{{ combatant.name }}</div>
     </td>
     <td>
       <input type="number" id="hitPoints" v-model.number="combatant.hitPoints" />
@@ -31,4 +34,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.name-width {
+  min-width: 100px;
+  max-width: 100%;
+}
 </style>
