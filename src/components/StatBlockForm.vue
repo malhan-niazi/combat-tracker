@@ -54,7 +54,7 @@
             <input id="dex" type="number" v-model.number="abilityScore.dex" />
             <label for="dex">dex</label>
           </div>
-          <div class="input-field col s4 m4 margin-btm-none margin-top-small">
+          <div class="input-field col s4 m4 l4 margin-btm-none margin-top-small">
             <input id="con" type="number" v-model.number="abilityScore.con" />
             <label for="con">con</label>
           </div>

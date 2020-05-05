@@ -33,30 +33,27 @@
     <!-- monster / character input form -->
     <div class="row" v-if="displayForm">
       <div class="col">
-        <div class="row">
-          <div class="col s12 left-align">
-            <label>
-              <input type="checkbox" class="filled-in" v-model="makeStatBlock" />
-              <span>Stat Block</span>
-            </label>
-          </div>
-        </div>
-        <div class="row">
-          <basic-form
-            v-if="!makeStatBlock"
-            class="col"
-            @add-combatant="addCombatant"
-            @cancel-add="displayForm = !displayForm"
-            v-bind:isNpc="isNpc"
-          ></basic-form>
-          <stat-block-form
-            v-if="makeStatBlock"
-            class="col"
-            @add-combatant="addCombatant"
-            @cancel-add="displayForm = !displayForm"
-            v-bind:isNpc="isNpc"
-          ></stat-block-form>
-        </div>
+        <h5 col s12>add {{ isNpc ? 'monster' : 'character' }}</h5>
+        <label>
+          <input type="checkbox" class="filled-in" v-model="makeStatBlock" />
+          <span>Stat Block</span>
+        </label>
+      </div>
+      <div class="row">
+        <stat-block-form
+          v-if="makeStatBlock"
+          class="col s12"
+          @add-combatant="addCombatant"
+          @cancel-add="displayForm = !displayForm"
+          v-bind:isNpc="isNpc"
+        ></stat-block-form>
+        <basic-form
+          v-if="!makeStatBlock"
+          class="col s12"
+          @add-combatant="addCombatant"
+          @cancel-add="displayForm = !displayForm"
+          v-bind:isNpc="isNpc"
+        ></basic-form>
       </div>
     </div>
   </div>
@@ -83,7 +80,7 @@ export default {
     init() {
       return {
         isNpc: false,
-        displayForm: true,
+        displayForm: false,
         makeStatBlock: false
       };
     }

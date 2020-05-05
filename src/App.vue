@@ -6,11 +6,8 @@
         <div class="col s12 m4 l3">
           <add-combatant @add-combatant="add" />
         </div>
-        <div class="col s12 m4 l4">
-          <combatant-list v-bind:combatants="combatants" />
-        </div>
-        <div class="col s12 m4 l5">
-          <!-- <time-converter /> -->
+        <div class="col s12 m8 l9">
+          <combatant-tracker v-bind:combatants="combatants" />
         </div>
       </div>
     </div>
@@ -19,9 +16,9 @@
 
 <script>
 // import TimeConverter from "./components/TimeConverter.vue";
-import HeaderComponent from "./components/Header.vue";
-import AddCombatant from "./components/AddCombatant.vue";
-import CombatantList from "./components/CombatantList.vue";
+import HeaderComponent from "./components/Header";
+import AddCombatant from "./components/AddCombatant";
+import CombatantTracker from "./components/CombatantTracker";
 
 export default {
   name: "App",
@@ -29,18 +26,28 @@ export default {
     // TimeConverter,
     HeaderComponent,
     AddCombatant,
-    CombatantList
+    CombatantTracker
   },
   data: function() {
     return {
+      currentSelection: "",
       combatants: [
         {
           name: "human",
           hitPoints: 24,
-          armorClass: 14,
           initiative: 12,
-          passivePerception: 14,
-          isNpc: false
+          armorClass: 14,
+          passivePerception: 13,
+          size: "md",
+          speed: 30,
+          abilityScore: {
+            str: 12,
+            dex: 15,
+            con: 14,
+            int: 10,
+            wis: 13,
+            cha: 16
+          }
         },
         {
           name: "dwarf",

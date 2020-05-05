@@ -7,7 +7,7 @@
           <th>HP</th>
           <th>AC</th>
           <th>Pass. Perc.</th>
-          <th @click="sortDesc">
+          <th @click="sortDescending">
             Init.
             <i class="tiny material-icons right">sort</i>
           </th>
@@ -19,6 +19,7 @@
           :key="index"
           v-bind:combatant="combatant"
           v-bind:index="index"
+          @update-selection="updateSelection"
         ></combatant-item>
       </tbody>
     </table>
@@ -35,8 +36,11 @@ export default {
   },
   props: ["combatants"],
   methods: {
-    sortDesc() {
+    sortDescending() {
       this.combatants.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
+    },
+    updateSelection(index, showDetail) {
+      this.$emit("update-selection", index, showDetail);
     }
   }
 };

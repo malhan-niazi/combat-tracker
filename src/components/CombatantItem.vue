@@ -1,14 +1,10 @@
 <template>
   <tr>
     <td>
-      <!-- <input
-        :id="`${combatant.name}`"
-        v-model="combatant.name"
-        :class="combatant.isNpc ? 'red-text' : 'blue-text'"
-      />-->
       <div
         class="name-width"
         :class="combatant.isNpc ? 'red-text' : 'blue-text'"
+        @click="updateSelection"
       >{{ combatant.name }}</div>
     </td>
     <td>
@@ -29,7 +25,17 @@
 <script>
 export default {
   name: "CombatantItem",
-  props: ["combatant"]
+  props: {
+    combatant: Object,
+    index: Number
+  },
+  methods: {
+    updateSelection() {
+      const index = this.index;
+      const showDetail = true;
+      this.$emit("update-selection", index, showDetail);
+    }
+  }
 };
 </script>
 
