@@ -1,11 +1,13 @@
 <template>
   <tr>
     <td>
-      <div
-        class="name-width"
-        :class="combatant.isNpc ? 'red-text' : 'blue-text'"
-        @click="updateSelection"
-      >{{ combatant.name }}</div>
+      <div class="name-width">
+        <a
+          href
+          @click.prevent="updateSelection"
+          :class="combatant.isNpc ? 'red-text' : 'blue-text'"
+        >{{ combatant.name }}</a>
+      </div>
     </td>
     <td>
       <input type="number" id="hitPoints" v-model.number="combatant.hitPoints" />

@@ -1,31 +1,29 @@
 <template>
-  <div class="hello">
-    <h5>{{ msg }}</h5>
-    <div class="form-group">
-      <input
-        type="number"
-        class="form-control"
-        id="value"
-        aria-describedby="value"
-        placeholder="Value"
-        v-model.number="input"
-      />
-      <small
-        id="valueHelp"
-        class="form-text text-muted"
-      >Enter a value, and select the corresponding unit of time.</small>
+  <div class="row">
+    <div class="col">
+      <h5>{{ msg }}</h5>
+      <div class="input-field margin-btm-none margin-top-small">
+        <input
+          type="number"
+          id="value"
+          aria-describedby="value"
+          placeholder="Value"
+          v-model.number="input"
+        />
+        <small id="valueHelp">Enter a value, and select the corresponding unit of time.</small>
+      </div>
+      <div class="input-field margin-btm-none margin-top-small">
+        <select class="browser-default" v-model="selection">
+          <option value disabled selected>select time unit</option>
+          <option>hour</option>
+          <option>minute</option>
+          <option>second</option>
+          <option>round</option>
+        </select>
+      </div>
+      <!-- <p v-if="conversion">{{ conversion }}</p> -->
+      <p v-if="rounds">{{ rounds }}</p>
     </div>
-    <div class="form-group">
-      <label for="unitSelection">Select Time-Unit</label>
-      <select class="form-control" id="unitSelection" v-model="selection">
-        <option>hour</option>
-        <option>minute</option>
-        <option>second</option>
-        <option>round</option>
-      </select>
-    </div>
-    <!-- <p v-if="conversion">{{ conversion }}</p> -->
-    <p v-if="rounds">{{ rounds }}</p>
   </div>
 </template>
 

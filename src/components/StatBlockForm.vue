@@ -31,12 +31,12 @@
         <div class="input-field col s6 margin-btm-none margin-top-small">
           <select class="browser-default" v-model="size">
             <option value disabled selected>select size</option>
-            <option value="ti">tiny</option>
+            <option value="tn">tiny</option>
             <option value="sm">small</option>
             <option value="md">medium</option>
             <option value="lg">large</option>
             <option value="hu">huge</option>
-            <option value="ga">gargantuan</option>
+            <option value="gr">gargantuan</option>
           </select>
         </div>
         <div class="input-field col s6 margin-btm-none margin-top-small">

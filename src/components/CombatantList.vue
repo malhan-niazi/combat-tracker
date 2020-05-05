@@ -1,5 +1,6 @@
 <template>
   <div class="row">
+    <h5>combatant tracker</h5>
     <table class="col s12">
       <thead>
         <tr>
@@ -38,6 +39,7 @@ export default {
   methods: {
     sortDescending() {
       this.combatants.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
+      this.$emit("hide-detail", false);
     },
     updateSelection(index, showDetail) {
       this.$emit("update-selection", index, showDetail);

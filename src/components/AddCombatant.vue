@@ -2,6 +2,7 @@
   <div>
     <div class="row" v-if="!displayForm">
       <div class="col s12">
+        <h5>add combatant</h5>
         <div class="row">
           <div class="col s6">
             <button
@@ -33,7 +34,10 @@
     <!-- monster / character input form -->
     <div class="row" v-if="displayForm">
       <div class="col">
-        <h5 col s12>add {{ isNpc ? 'monster' : 'character' }}</h5>
+        <h5 col s12>
+          add
+          <span :class="isNpc ? 'red-text' : 'blue-text'">{{ isNpc ? 'monster' : 'character' }}</span>
+        </h5>
         <label>
           <input type="checkbox" class="filled-in" v-model="makeStatBlock" />
           <span>Stat Block</span>

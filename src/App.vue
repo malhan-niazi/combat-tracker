@@ -3,11 +3,14 @@
     <div class="container-fluid">
       <header-component />
       <div class="row">
-        <div class="col s12 m4 l3">
+        <div class="col s12 m12 l3">
           <add-combatant @add-combatant="add" />
         </div>
-        <div class="col s12 m8 l9">
+        <div class="col s12 m12 l7">
           <combatant-tracker v-bind:combatants="combatants" />
+        </div>
+        <div class="col s12 m12 l2">
+          <time-converter />
         </div>
       </div>
     </div>
@@ -15,7 +18,7 @@
 </template>
 
 <script>
-// import TimeConverter from "./components/TimeConverter.vue";
+import TimeConverter from "./components/TimeConverter.vue";
 import HeaderComponent from "./components/Header";
 import AddCombatant from "./components/AddCombatant";
 import CombatantTracker from "./components/CombatantTracker";
@@ -23,7 +26,7 @@ import CombatantTracker from "./components/CombatantTracker";
 export default {
   name: "App",
   components: {
-    // TimeConverter,
+    TimeConverter,
     HeaderComponent,
     AddCombatant,
     CombatantTracker
