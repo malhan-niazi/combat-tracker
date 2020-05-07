@@ -47,8 +47,8 @@ export default {
             str: 12,
             dex: 15,
             con: 14,
-            int: 10,
-            wis: 13,
+            int: 8,
+            wis: 10,
             cha: 16
           }
         },

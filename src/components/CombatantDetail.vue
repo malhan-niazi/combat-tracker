@@ -3,27 +3,23 @@
     <div class="col">
       <div class="row margin-bottom-small" v-if="combatant.name">
         <div class="col">
-          <div>
-            <b>name</b>
-          </div>
-          <div>{{ combatant.name }}</div>
+          <b>name</b>
         </div>
+        <div>{{ combatant.name }}</div>
       </div>
       <div class="row margin-bottom-small" v-if="combatant.size">
         <div class="col">
-          <div>
-            <b>size</b>
-          </div>
-          <div>{{ size }}</div>
+          <b>size</b>
         </div>
+        <div>{{ size }}</div>
       </div>
-      <div class="row margin-bottom-small" v-if="combatant.armorClass">
+      <div class="row margin-bottom-small">
         <div class="col">
-          <div>
-            <b>armorClass</b>
-          </div>
+          <b>armorClass</b>
+        </div>
+        <div class="col">
           <input
-            class="col s4 m4 l4 margin-btm-none margin-top-small"
+            class="col s4 margin-btm-none margin-top-small input-height-small"
             type="number"
             id="armorClass"
             v-model.number="combatant.armorClass"
@@ -32,77 +28,135 @@
       </div>
       <div class="row margin-bottom-small">
         <div class="col">
-          <div>
-            <b>hitPoints</b>
-          </div>
-          <div>
-            <input
-              class="col s4 m4 l4 margin-btm-none margin-top-small"
-              type="number"
-              id="hitPoints"
-              v-model.number="combatant.hitPoints"
-            />
-          </div>
+          <b>hitPoints</b>
+        </div>
+        <div class="col">
+          <input
+            class="col s4 margin-btm-none margin-top-small input-height-small"
+            type="number"
+            id="hitPoints"
+            v-model.number="combatant.hitPoints"
+          />
         </div>
       </div>
-      <div class="row margin-bottom-small" v-if="combatant.passivePerception">
+      <div class="row margin-bottom-small">
         <div class="col">
-          <div>
-            <b>passivePerception</b>
-          </div>
-          <div>
-            <input
-              class="col s4 m4 l4 margin-btm-none margin-top-small"
-              type="number"
-              id="passivePerception"
-              v-model.number="combatant.passivePerception"
-            />
-          </div>
+          <b>passivePerception</b>
+        </div>
+        <div class="col">
+          <input
+            class="col s4 margin-btm-none margin-top-small input-height-small"
+            type="number"
+            id="passivePerception"
+            v-model.number="combatant.passivePerception"
+          />
         </div>
       </div>
       <div class="row margin-bottom-small" v-if="combatant.initiative">
         <div class="col">
-          <div>
-            <b>initiative</b>
-          </div>
-          <div>
-            <input
-              class="col s4 m4 l4 margin-btm-none margin-top-small"
-              type="number"
-              id="initiative"
-              v-model.number="combatant.initiative"
-            />
-          </div>
+          <b>initiative</b>
+        </div>
+        <div class="col">
+          <input
+            class="col s4 margin-btm-none margin-top-small input-height-small"
+            type="number"
+            id="initiative"
+            v-model.number="combatant.initiative"
+          />
         </div>
       </div>
       <div class="row margin-bottom-small" v-if="combatant.speed">
         <div class="col">
-          <div>
-            <b>speed</b>
-          </div>
-          <div>
-            <input
-              class="col s4 m4 l4 margin-btm-none margin-top-small"
-              type="number"
-              id="speed"
-              v-model.number="combatant.speed"
-            />
-          </div>
+          <b>speed</b>
+        </div>
+        <div class="col">
+          <input
+            class="col s4 margin-btm-none margin-top-small input-height-small"
+            type="number"
+            id="speed"
+            v-model.number="combatant.speed"
+          />
         </div>
       </div>
       <div class="row margin-bottom-small" v-if="combatant.abilityScore">
         <div class="col s12 m12 l6">
           <div class="row">
-            <div class="col">str {{ combatant.abilityScore.str }}</div>
-            <div class="col">dex {{ combatant.abilityScore.dex }}</div>
-            <div class="col">con {{ combatant.abilityScore.con }}</div>
+            <div class="col s4 l4">
+              <b>STR</b>
+              <input
+                class="margin-btm-none margin-top-small"
+                type="number"
+                id="str"
+                v-model.number="combatant.abilityScore.str"
+              />
+              <span
+                :class="modifierColor(modifier(combatant.abilityScore.str))"
+              >{{ modifier(combatant.abilityScore.str) }}</span>
+            </div>
+            <div class="col s4 l4">
+              <b>DEX</b>
+              <input
+                class="margin-btm-none margin-top-small"
+                type="number"
+                id="dex"
+                v-model.number="combatant.abilityScore.dex"
+              />
+              <span
+                :class="modifierColor(modifier(combatant.abilityScore.dex))"
+              >{{ modifier(combatant.abilityScore.dex) }}</span>
+            </div>
+            <div class="col s4 l4">
+              <b>CON</b>
+              <input
+                class="margin-btm-none margin-top-small"
+                type="number"
+                id="con"
+                v-model.number="combatant.abilityScore.con"
+              />
+              <span
+                :class="modifierColor(modifier(combatant.abilityScore.con))"
+              >{{ modifier(combatant.abilityScore.con) }}</span>
+            </div>
           </div>
         </div>
         <div class="col s12 m12 l6">
           <div class="row">
-            <div class="col">int {{ combatant.abilityScore.int }}</div>
-            <div class="col">wis {{ combatant.abilityScore.wis }}</div>
-            <div class="col">cha {{ combatant.abilityScore.cha }}</div>
+            <div class="col s4 l4">
+              <b>INT</b>
+              <input
+                class="margin-btm-none margin-top-small"
+                type="number"
+                id="int"
+                v-model.number="combatant.abilityScore.int"
+              />
+              <span
+                :class="modifierColor(modifier(combatant.abilityScore.int))"
+              >{{ modifier(combatant.abilityScore.int) }}</span>
+            </div>
+            <div class="col s4 l4">
+              <b>WIS</b>
+              <input
+                class="margin-btm-none margin-top-small"
+                type="number"
+                id="wis"
+                v-model.number="combatant.abilityScore.wis"
+              />
+              <span
+                :class="modifierColor(modifier(combatant.abilityScore.wis))"
+              >{{ modifier(combatant.abilityScore.wis) }}</span>
+            </div>
+            <div class="col s4 l4">
+              <b>CHA</b>
+              <input
+                class="margin-btm-none margin-top-small"
+                type="number"
+                id="cha"
+                v-model.number="combatant.abilityScore.cha"
+              />
+              <span
+                :class="modifierColor(modifier(combatant.abilityScore.cha))"
+              >{{ modifier(combatant.abilityScore.cha) }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -135,6 +189,18 @@ export default {
           return "whoa";
       }
     }
+  },
+  methods: {
+    modifier(abilityScore) {
+      return Math.floor((abilityScore - 10) / 2);
+    },
+    modifierColor(modifier) {
+      return modifier < 0
+        ? "red-text"
+        : modifier === 0
+        ? "grey-text"
+        : "green-text";
+    }
   }
 };
 </script>
@@ -148,5 +214,8 @@ export default {
 }
 .margin-bottom-small {
   margin-bottom: 5px;
+}
+.input-height-small {
+  height: 1em !important;
 }
 </style>
