@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-    <div class="container-fluid bg-flat-dark">
+    <header-component />
+    <div class="container-fluid">
       <div class="row">
-        <div class="col">
-          <header-component />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
+        <div class="col s12 m12 l3">
           <add-combatant @add-combatant="add" />
         </div>
-        <div class="col-sm-6">
-          <combatant-list v-bind:combatants="combatants" />
+        <div class="col s12 m12 l7">
+          <combatant-tracker v-bind:combatants="combatants" />
         </div>
-        <div class="col-sm-3">
-          <!-- <time-converter /> -->
+        <div class="col s12 m12 l2">
+          <time-converter />
         </div>
       </div>
     </div>
@@ -22,52 +18,62 @@
 </template>
 
 <script>
-// import TimeConverter from "./components/TimeConverter.vue";
-import HeaderComponent from "./components/Header.vue";
-import AddCombatant from "./components/AddCombatant.vue";
-import CombatantList from "./components/CombatantList.vue";
+import TimeConverter from "./components/TimeConverter.vue";
+import HeaderComponent from "./components/Header";
+import AddCombatant from "./components/AddCombatant";
+import CombatantTracker from "./components/CombatantTracker";
 
 export default {
   name: "App",
   components: {
-    // TimeConverter,
+    TimeConverter,
     HeaderComponent,
     AddCombatant,
-    CombatantList
+    CombatantTracker
   },
   data: function() {
     return {
+      currentSelection: "",
       combatants: [
         {
-          name: "jack",
-          hp: 2,
-          ac: 2,
-          initiative: 2,
-          pp: 2,
+          name: "human",
+          hitPoints: 24,
+          initiative: 12,
+          armorClass: 14,
+          passivePerception: 13,
+          size: "md",
+          speed: 30,
+          abilityScore: {
+            str: 12,
+            dex: 15,
+            con: 14,
+            int: 10,
+            wis: 13,
+            cha: 16
+          }
+        },
+        {
+          name: "dwarf",
+          hitPoints: 32,
+          armorClass: 15,
+          initiative: 13,
+          passivePerception: 10,
           isNpc: false
         },
         {
-          name: "jill",
-          hp: 4,
-          ac: 4,
-          initiative: 4,
-          pp: 4,
+          name: "elf",
+          hitPoints: 20,
+          armorClass: 17,
+          initiative: 18,
+          passivePerception: 14,
           isNpc: false
         },
         {
-          name: "john",
-          hp: 3,
-          ac: 3,
-          initiative: 3,
-          pp: 3,
-          isNpc: true
-        },
-        {
-          name: "jen",
-          hp: 1,
-          ac: 1,
-          initiative: 1,
-          pp: 1,
+          name: "dragon",
+          hitPoints: 86,
+          armorClass: 18,
+          initiative: 14,
+          passivePerception: 18,
           isNpc: true
         }
       ]
@@ -82,21 +88,8 @@ export default {
 </script>
 
 <style>
-body,
-html {
-  background-color: #535c68 !important;
-}
 #app {
-  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #fff;
-}
-/* .col,
-.col-sm {
-  border: 1px solid #8295a8;
-} */
-div h3 {
-  text-align: left;
 }
 </style>

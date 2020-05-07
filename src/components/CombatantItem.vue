@@ -1,22 +1,25 @@
 <template>
   <tr>
-    <th scope="row" :class="combatant.isNpc ? 'villain' : 'hero'">{{combatant.name}}</th>
     <td>
-      <input type="number" class="form-control form-control-sm" id="hp" v-model="combatant.hp" />
+      <div class="name-width">
+        <a
+          href
+          @click.prevent="updateSelection"
+          :class="combatant.isNpc ? 'red-text' : 'blue-text'"
+        >{{ combatant.name }}</a>
+      </div>
     </td>
     <td>
-      <input type="number" class="form-control form-control-sm" id="ac" v-model="combatant.ac" />
+      <input type="number" id="hitPoints" v-model.number="combatant.hitPoints" />
     </td>
     <td>
-      <input
-        type="number"
-        class="form-control form-control-sm"
-        id="init"
-        v-model="combatant.initiative"
-      />
+      <input type="number" id="armorClass" v-model.number="combatant.armorClass" />
     </td>
     <td>
-      <input type="number" class="form-control form-control-sm" id="pp" v-model="combatant.pp" />
+      <input type="number" id="passivePerception" v-model.number="combatant.passivePerception" />
+    </td>
+    <td>
+      <input type="number" id="initiative" v-model.number="combatant.initiative" />
     </td>
   </tr>
 </template>
@@ -24,15 +27,23 @@
 <script>
 export default {
   name: "CombatantItem",
-  props: ["combatant"]
+  props: {
+    combatant: Object,
+    index: Number
+  },
+  methods: {
+    updateSelection() {
+      const index = this.index;
+      const showDetail = true;
+      this.$emit("update-selection", index, showDetail);
+    }
+  }
 };
 </script>
 
 <style lang="css" scoped>
-.hero {
-  color: #7ed6df;
-}
-.villain {
-  color: #eb4d4b;
+.name-width {
+  min-width: 100px;
+  max-width: 100%;
 }
 </style>

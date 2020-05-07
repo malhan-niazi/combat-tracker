@@ -4,8 +4,8 @@
 
 - track character information
   - name
-  - hp
-  - ac
+  - hitPoints
+  - armorClass
   - initiative
   - passive perception
   - statuses
@@ -13,8 +13,8 @@
     - duration
 - track monster information
   - name
-  - hp
-  - ac
+  - hitPoints
+  - armorClass
   - initiative
   - passive perception
   - statuses

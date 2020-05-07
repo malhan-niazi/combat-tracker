@@ -1,146 +1,99 @@
 <template>
   <div>
-    <div>
-      <h5>add combatants</h5>
-    </div>
-    <div v-if="!displayForm" class="d-flex flex-column justify-content-around">
-      <div>
-        <button
-          type="button"
-          class="btn btn-primary btn-block"
-          @click="displayForm = !displayForm; isNpc = false"
-        >add character</button>
-      </div>
-      <div>
-        <button
-          type="button"
-          class="btn btn-danger btn-block"
-          @click="displayForm = !displayForm; isNpc = true"
-        >add monster</button>
+    <div class="row" v-if="!displayForm">
+      <div class="col s12">
+        <h5>add combatant</h5>
+        <div class="row">
+          <div class="col s6">
+            <button
+              type="button"
+              class="btn btn-block blue"
+              @click="
+                displayForm = !displayForm;
+                isNpc = false;
+              "
+            >
+              <i class="tiny material-icons left">add</i> player
+            </button>
+          </div>
+          <div class="col s6">
+            <button
+              type="button"
+              class="btn btn-block red"
+              @click="
+                displayForm = !displayForm;
+                isNpc = true;
+              "
+            >
+              <i class="tiny material-icons left">add</i>monster
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <!-- monster / character input form -->
-    <div v-if="displayForm">
-      <div class="d-flex flex-column justify-content-around">
-        <span
-          class="badge"
-          :class="isNpc ? 'badge-danger' : 'badge-primary'"
-        >{{ isNpc ? 'fill out monster details' : 'fill out hero details' }}</span>
+    <div class="row" v-if="displayForm">
+      <div class="col">
+        <h5 col s12>
+          add
+          <span :class="isNpc ? 'red-text' : 'blue-text'">{{ isNpc ? 'monster' : 'character' }}</span>
+        </h5>
+        <label>
+          <input type="checkbox" class="filled-in" v-model="makeStatBlock" />
+          <span>Stat Block</span>
+        </label>
       </div>
-      <form class="margin" v-on:submit.prevent="addCombatant">
-        <div class="form-group row">
-          <label for="name" class="col-lg-4 col-form-label col-form-label-sm">name</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control form-control-sm" id="name" v-model="name" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="hp" class="col-lg-7 col-form-label col-form-label-sm">hit points</label>
-          <div class="col-lg-5">
-            <input type="number" class="form-control form-control-sm" id="hp" v-model.number="hp" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="ac" class="col-lg-7 col-form-label col-form-label-sm">armor class</label>
-          <div class="col-lg-5">
-            <input type="number" class="form-control form-control-sm" id="ac" v-model.number="ac" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="pp" class="col-lg-7 col-form-label col-form-label-sm">initiative</label>
-          <div class="col-lg-5">
-            <input
-              type="number"
-              class="form-control form-control-sm"
-              id="initiative"
-              v-model.number="initiative"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="pp" class="col-lg-7 col-form-label col-form-label-sm">passive perception</label>
-          <div class="col-lg-5">
-            <input type="number" class="form-control form-control-sm" id="pp" v-model.number="pp" />
-          </div>
-        </div>
-        <input type="hidden" id="type" name="type" :value="isNpc" />
-        <div class="form-group row">
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">add</button>
-          </div>
-          <div class="col-12">
-            <button
-              type="submit"
-              class="btn btn-warning btn-block"
-              @click="displayForm = !displayForm"
-            >cancel</button>
-          </div>
-        </div>
-      </form>
+      <div class="row">
+        <stat-block-form
+          v-if="makeStatBlock"
+          class="col s12"
+          @add-combatant="addCombatant"
+          @cancel-add="displayForm = !displayForm"
+          v-bind:isNpc="isNpc"
+        ></stat-block-form>
+        <basic-form
+          v-if="!makeStatBlock"
+          class="col s12"
+          @add-combatant="addCombatant"
+          @cancel-add="displayForm = !displayForm"
+          v-bind:isNpc="isNpc"
+        ></basic-form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import BasicForm from "./BasicForm";
+import StatBlockForm from "./StatBlockForm";
+
 export default {
   name: "AddCombatantComponent",
+  components: {
+    BasicForm,
+    StatBlockForm
+  },
   data: function() {
     return this.init();
   },
   methods: {
-    addCombatant() {
-      const name = this.name;
-      const hp = this.hp;
-      const initiative = this.initiative;
-      const ac = this.ac;
-      const pp = this.pp;
-      const isNpc = this.isNpc;
-      this.$emit("add-combatant", {
-        name,
-        hp,
-        initiative,
-        ac,
-        pp,
-        isNpc
-      });
-      this.reset();
+    addCombatant(combatant) {
+      combatant.isNpc = this.isNpc;
+      this.$emit("add-combatant", combatant);
     },
     init() {
       return {
-        name: "",
-        hp: "",
-        initiative: "",
-        ac: "",
-        pp: "",
         isNpc: false,
-        displayForm: false
+        displayForm: false,
+        makeStatBlock: false
       };
-    },
-    reset() {
-      this.name = this.init().name;
-      this.hp = this.init().hp;
-      this.initiative = this.init().initiative;
-      this.ac = this.init().ac;
-      this.pp = this.init().pp;
     }
   }
 };
 </script>
 
 <style scoped>
-.btn-primary,
-.badge-primary {
-  background-color: #22a6b3;
-  border-color: #22a6b3;
-}
-.btn-danger,
-.badge-danger {
-  background-color: #eb4d4b;
-  border-color: #eb4d4b;
-}
-.btn-warning {
-  background-color: #f0932b;
-  border-color: #f0932b;
-  color: #fff;
+.btn-block {
+  width: 100%;
 }
 </style>

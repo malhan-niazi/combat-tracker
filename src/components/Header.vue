@@ -1,6 +1,14 @@
 <template>
-  <div>
-    <h3>dnd combat tracker (WIP)</h3>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper grey darken-3">
+        <div class="row">
+          <div class="col">
+            <a href="#" class="brand-logo">Combat Tracker</a>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
 </template>
 
@@ -8,4 +16,4 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style></style>
