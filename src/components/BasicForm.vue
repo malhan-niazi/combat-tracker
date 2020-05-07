@@ -24,7 +24,7 @@
         </div>
         <div class="input-field col s6 margin-btm-none margin-top-small">
           <input id="passivePerception" type="number" v-model.number="passivePerception" />
-          <label for="passivePerception">passive perception</label>
+          <label for="passivePerception">pass. perc.</label>
         </div>
       </div>
       <div class="row">

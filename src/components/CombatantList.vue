@@ -1,29 +1,30 @@
 <template>
   <div class="row">
-    <h5>combatant tracker</h5>
-    <table class="col s12">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>HP</th>
-          <th>AC</th>
-          <th>Pass. Perc.</th>
-          <th @click="sortDescending">
-            Init.
-            <i class="tiny material-icons right">sort</i>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <combatant-item
-          v-for="(combatant, index) in combatants"
-          :key="index"
-          v-bind:combatant="combatant"
-          v-bind:index="index"
-          @update-selection="updateSelection"
-        ></combatant-item>
-      </tbody>
-    </table>
+    <div class="col">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>HP</th>
+            <th>AC</th>
+            <th>Pass. Perc.</th>
+            <th @click="sortDescending">
+              Init.
+              <i class="tiny material-icons right">sort</i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <combatant-item
+            v-for="(combatant, index) in combatants"
+            :key="index"
+            v-bind:combatant="combatant"
+            v-bind:index="index"
+            @update-selection="updateSelection"
+          ></combatant-item>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 

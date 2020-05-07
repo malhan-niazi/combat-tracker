@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper grey darken-3">
+      <div class="nav-wrapper">
         <div class="row">
           <div class="col">
             <a href="#" class="brand-logo">Combat Tracker</a>
