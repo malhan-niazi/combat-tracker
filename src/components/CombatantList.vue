@@ -34,12 +34,12 @@
       </div>
       <div class="row">
         <div class="col left">
-          <a class="waves-effect waves-light btn" @click="prev">
+          <a class="btn" @click="prev">
             <i class="material-icons left">arrow_back</i>prev
           </a>
         </div>
         <div class="col right">
-          <a class="waves-effect waves-light btn" @click="next">
+          <a class="btn" @click="next">
             <i class="material-icons right">arrow_forward</i>next
           </a>
         </div>
