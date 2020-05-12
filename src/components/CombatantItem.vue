@@ -1,11 +1,15 @@
 <template>
   <tr>
     <td>
+      <div v-if="currentAction === index">
+        <i class="material-icons right">directions_run</i>
+      </div>
+
       <div class="name-width">
         <a
           href
           @click.prevent="updateSelection"
-          :class="combatant.isNpc ? 'red-text' : 'blue-text'"
+          :class="[combatant.isNpc ? 'red-text' : 'blue-text', currentAction === index ? 'bold' : '']"
         >{{ combatant.name }}</a>
       </div>
     </td>
@@ -29,7 +33,8 @@ export default {
   name: "CombatantItem",
   props: {
     combatant: Object,
-    index: Number
+    index: Number,
+    currentAction: Number
   },
   methods: {
     updateSelection() {
@@ -45,5 +50,8 @@ export default {
 .name-width {
   min-width: 100px;
   max-width: 100%;
+}
+.bold {
+  font-weight: bold;
 }
 </style>
