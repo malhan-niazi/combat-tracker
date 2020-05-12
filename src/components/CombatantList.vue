@@ -21,6 +21,9 @@
             v-bind:combatant="combatant"
             v-bind:index="index"
             @update-selection="updateSelection"
+            :class="
+              showDetail && index === currentIndex ? 'grey lighten-4' : ''
+            "
           ></combatant-item>
         </tbody>
       </table>
@@ -36,6 +39,12 @@ export default {
   components: {
     CombatantItem
   },
+  data() {
+    return {
+      showDetail: false,
+      currentIndex: 0
+    };
+  },
   props: ["combatants"],
   methods: {
     sortDescending() {
@@ -43,6 +52,8 @@ export default {
       this.$emit("hide-detail", false);
     },
     updateSelection(index, showDetail) {
+      this.currentIndex = index;
+      this.showDetail = showDetail;
       this.$emit("update-selection", index, showDetail);
     }
   }
