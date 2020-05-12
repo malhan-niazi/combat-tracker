@@ -75,19 +75,20 @@ export default {
       this.$emit("update-selection", index, showDetail);
     },
     next() {
-      this.showDetail = true;
-      if (this.currentAction < this.combatants.length) this.currentAction++;
-      if (this.currentAction === this.combatants.length) this.currentAction = 0;
-      this.currentIndex = this.currentAction;
-      this.$emit("update-selection", this.currentIndex, this.showDetail);
+      if (this.currentAction < this.combatants.length - 1) {
+        this.currentAction++;
+      } else {
+        this.currentAction = 0;
+      }
+      this.updateSelection(this.currentAction, true);
     },
     prev() {
-      this.showDetail = true;
-      if (this.currentAction >= 0) this.currentAction--;
-      if (this.currentAction < 0)
+      if (this.currentAction > 0) {
+        this.currentAction--;
+      } else {
         this.currentAction = this.combatants.length - 1;
-      this.currentIndex = this.currentAction;
-      this.$emit("update-selection", this.currentIndex, this.showDetail);
+      }
+      this.updateSelection(this.currentAction, true);
     }
   }
 };
