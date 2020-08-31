@@ -37,26 +37,26 @@ import CombatantItem from "./CombatantItem.vue";
 export default {
   name: "combatant-list",
   components: {
-    CombatantItem
+    CombatantItem,
   },
   data() {
     return {
       showDetail: false,
-      currentIndex: 0
+      currentIndex: 0,
     };
   },
   props: ["combatants"],
   methods: {
     sortDescending() {
       this.combatants.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
-      this.$emit("hide-detail", false);
+      this.$emit("hide-detail", {});
     },
     updateSelection(index, showDetail) {
       this.currentIndex = index;
       this.showDetail = showDetail;
       this.$emit("update-selection", index, showDetail);
-    }
-  }
+    },
+  },
 };
 </script>
 
