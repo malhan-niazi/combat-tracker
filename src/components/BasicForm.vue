@@ -3,47 +3,41 @@
     <form class="" v-on:submit.prevent>
       <div class="">
         <div class="">
+          <label for="name">Name</label>
           <input id="name" type="text" v-model="name" />
-          <label for="name">name</label>
         </div>
       </div>
       <div class="">
         <div class="">
+          <label for="hitPoints">Hit Points</label>
           <input id="hitPoints" type="number" v-model.number="hitPoints" />
-          <label for="hitPoints">hit points</label>
         </div>
         <div class="">
+          <label for="armorClass">Armor Class</label>
           <input id="armorClass" type="number" v-model.number="armorClass" />
-          <label for="armorClass">armor class</label>
         </div>
       </div>
       <div class="">
         <div class="">
+          <label for="init">Initiative</label>
           <input id="init" type="number" v-model.number="initiative" />
-          <label for="init">initiative</label>
         </div>
         <div class="">
-          <input id="passivePerception" type="number" v-model.number="passivePerception" />
-          <label for="passivePerception">passive perception</label>
+          <label for="passivePerception">Passive Preception</label>
+          <input
+            id="passivePerception"
+            type="number"
+            v-model.number="passivePerception"
+          />
         </div>
       </div>
       <div class="">
         <div class="">
-          <button
-            class=""
-            type="submit"
-            name="add"
-            @click="addCombatant"
-          >ok
+          <button class="" type="submit" name="add" @click="addCombatant">
+            ok
           </button>
-        </div>
-        <div class="">
-          <button
-            type="submit"
-            class=""
-            name="cancel"
-            @click="cancel"
-          >cancel
+          <button type="submit" class="" name="cancel" @click="cancel">
+            cancel
           </button>
         </div>
       </div>
@@ -55,9 +49,9 @@
 export default {
   name: "BasicForm",
   props: {
-    isNpc: Boolean
+    isNpc: Boolean,
   },
-  data: function() {
+  data: function () {
     return this.init();
   },
   methods: {
@@ -76,7 +70,7 @@ export default {
         hitPoints,
         initiative,
         armorClass,
-        passivePerception
+        passivePerception,
       });
       this.reset();
     },
@@ -86,7 +80,7 @@ export default {
         hitPoints: "",
         initiative: "",
         armorClass: "",
-        passivePerception: ""
+        passivePerception: "",
       };
     },
     reset() {
@@ -95,8 +89,8 @@ export default {
       this.initiative = this.init().initiative;
       this.armorClass = this.init().armorClass;
       this.passivePerception = this.init().passivePerception;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -2,156 +2,142 @@
   <div class="">
     <div class="">
       <div class="">
-        <div class="">
-          <b>name</b>
-        </div>
-        <div>{{ combatant.name }}</div>
+        <b>Name</b>
+      </div>
+      <div>{{ combatant.name }}</div>
+    </div>
+    <div class="">
+      <div class="">
+        <b>Size</b>
+      </div>
+      <div>{{ combatant.name }}</div>
+    </div>
+    <div class="">
+      <div class="">
+        <b>Armor Class</b>
       </div>
       <div class="">
-        <div class="">
-          <b>size</b>
-        </div>
-        <div>{{ size }}</div>
+        <input
+          class=""
+          type="number"
+          id="armorClass"
+          v-model.number="combatant.armorClass"
+        />
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <b>Hit Points</b>
       </div>
       <div class="">
+        <input
+          class=""
+          type="number"
+          id="hitPoints"
+          v-model.number="combatant.hitPoints"
+        />
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <b>Preception</b>
+      </div>
+      <div class="">
+        <input
+          class=""
+          type="number"
+          id="passivePerception"
+          v-model.number="combatant.passivePerception"
+        />
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <b>Initiative</b>
+      </div>
+      <div class="">
+        <input
+          class=""
+          type="number"
+          id="initiative"
+          v-model.number="combatant.initiative"
+        />
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <b>Speed</b>
+      </div>
+      <div class="">
+        <input
+          class=""
+          type="number"
+          id="speed"
+          v-model.number="combatant.speed"
+        />
+      </div>
+    </div>
+    <div class="">
+      <div v-if="combatant.abilityScore" class="">
         <div class="">
-          <b>armorClass</b>
-        </div>
-        <div class="">
+          <b>STR</b>
           <input
             class=""
             type="number"
-            id="armorClass"
-            v-model.number="combatant.armorClass"
+            id="str"
+            v-model.number="combatant.abilityScore.str"
           />
-        </div>
-      </div>
-      <div class="">
-        <div class="">
-          <b>hitPoints</b>
+          <span>{{ modifier(combatant.abilityScore.str) }}</span>
         </div>
         <div class="">
+          <b>DEX</b>
           <input
             class=""
             type="number"
-            id="hitPoints"
-            v-model.number="combatant.hitPoints"
+            id="dex"
+            v-model.number="combatant.abilityScore.dex"
           />
-        </div>
-      </div>
-      <div class="">
-        <div class="">
-          <b>passivePerception</b>
+          <span>{{ modifier(combatant.abilityScore.dex) }}</span>
         </div>
         <div class="">
+          <b>CON</b>
           <input
             class=""
             type="number"
-            id="passivePerception"
-            v-model.number="combatant.passivePerception"
+            id="con"
+            v-model.number="combatant.abilityScore.con"
           />
-        </div>
-      </div>
-      <div class="">
-        <div class="">
-          <b>initiative</b>
+          <span>{{ modifier(combatant.abilityScore.con) }}</span>
         </div>
         <div class="">
+          <b>INT</b>
           <input
             class=""
             type="number"
-            id="initiative"
-            v-model.number="combatant.initiative"
+            id="int"
+            v-model.number="combatant.abilityScore.int"
           />
-        </div>
-      </div>
-      <div class="">
-        <div class="">
-          <b>speed</b>
+          <span>{{ modifier(combatant.abilityScore.int) }}</span>
         </div>
         <div class="">
+          <b>WIS</b>
           <input
             class=""
             type="number"
-            id="speed"
-            v-model.number="combatant.speed"
+            id="wis"
+            v-model.number="combatant.abilityScore.wis"
           />
-        </div>
-      </div>
-      <div class="">
-        <div class="">
-          <div class="">
-            <div class="">
-              <b>STR</b>
-              <input
-                class=""
-                type="number"
-                id="str"
-                v-model.number="combatant.abilityScore.str"
-              />
-              <span
-              >{{ modifier(combatant.abilityScore.str) }}</span>
-            </div>
-            <div class="">
-              <b>DEX</b>
-              <input
-                class=""
-                type="number"
-                id="dex"
-                v-model.number="combatant.abilityScore.dex"
-              />
-              <span
-              >{{ modifier(combatant.abilityScore.dex) }}</span>
-            </div>
-            <div class="">
-              <b>CON</b>
-              <input
-                class=""
-                type="number"
-                id="con"
-                v-model.number="combatant.abilityScore.con"
-              />
-              <span
-              >{{ modifier(combatant.abilityScore.con) }}</span>
-            </div>
-          </div>
+          <span>{{ modifier(combatant.abilityScore.wis) }}</span>
         </div>
         <div class="">
-          <div class="">
-            <div class="">
-              <b>INT</b>
-              <input
-                class=""
-                type="number"
-                id="int"
-                v-model.number="combatant.abilityScore.int"
-              />
-              <span
-              >{{ modifier(combatant.abilityScore.int) }}</span>
-            </div>
-            <div class="">
-              <b>WIS</b>
-              <input
-                class=""
-                type="number"
-                id="wis"
-                v-model.number="combatant.abilityScore.wis"
-              />
-              <span
-              >{{ modifier(combatant.abilityScore.wis) }}</span>
-            </div>
-            <div class="">
-              <b>CHA</b>
-              <input
-                class=""
-                type="number"
-                id="cha"
-                v-model.number="combatant.abilityScore.cha"
-              />
-              <span
-              >{{ modifier(combatant.abilityScore.cha) }}</span>
-            </div>
-          </div>
+          <b>CHA</b>
+          <input
+            class=""
+            type="number"
+            id="cha"
+            v-model.number="combatant.abilityScore.cha"
+          />
+          <span>{{ modifier(combatant.abilityScore.cha) }}</span>
         </div>
       </div>
     </div>
@@ -162,7 +148,7 @@
 export default {
   name: "CombatantDetail",
   props: {
-    combatant: Object
+    combatant: Object,
   },
   computed: {
     size() {
@@ -182,7 +168,7 @@ export default {
         default:
           return "whoa";
       }
-    }
+    },
   },
   methods: {
     modifier(abilityScore) {
@@ -194,8 +180,8 @@ export default {
         : modifier === 0
         ? "grey-text"
         : "green-text";
-    }
-  }
+    },
+  },
 };
 </script>
 

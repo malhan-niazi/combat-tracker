@@ -1,24 +1,22 @@
 <template>
   <div id="app">
     <header-component />
-    <div class="">
+    <div class="monospace">
       <div class="">
-        <div class="">
-          <add-combatant @add-combatant="add" />
-        </div>
-        <div class="">
-          <combatant-tracker v-bind:combatants="combatants" />
-        </div>
-        <div class="">
-          <time-converter />
-        </div>
+        <add-combatant @add-combatant="add" />
+      </div>
+      <div class="">
+        <combatant-tracker v-bind:combatants="combatants" />
+      </div>
+      <div class="">
+        <!-- <time-converter /> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TimeConverter from "./components/TimeConverter.vue";
+// import TimeConverter from "./components/TimeConverter.vue";
 import HeaderComponent from "./components/Header";
 import AddCombatant from "./components/AddCombatant";
 import CombatantTracker from "./components/CombatantTracker";
@@ -26,12 +24,12 @@ import CombatantTracker from "./components/CombatantTracker";
 export default {
   name: "App",
   components: {
-    TimeConverter,
+    // TimeConverter,
     HeaderComponent,
     AddCombatant,
-    CombatantTracker
+    CombatantTracker,
   },
-  data: function() {
+  data: function () {
     return {
       currentSelection: "",
       combatants: [
@@ -49,8 +47,8 @@ export default {
             con: 14,
             int: 8,
             wis: 10,
-            cha: 16
-          }
+            cha: 16,
+          },
         },
         {
           name: "dwarf",
@@ -58,7 +56,7 @@ export default {
           armorClass: 15,
           initiative: 13,
           passivePerception: 10,
-          isNpc: false
+          isNpc: false,
         },
         {
           name: "elf",
@@ -66,7 +64,7 @@ export default {
           armorClass: 17,
           initiative: 18,
           passivePerception: 14,
-          isNpc: false
+          isNpc: false,
         },
         {
           name: "dragon",
@@ -74,16 +72,16 @@ export default {
           armorClass: 18,
           initiative: 14,
           passivePerception: 18,
-          isNpc: true
-        }
-      ]
+          isNpc: true,
+        },
+      ],
     };
   },
   methods: {
     add(combatant) {
       this.combatants.push(combatant);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -91,6 +89,15 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font: monospace;
+}
+.monospace,
+a,
+button,
+input {
+  font-family: monospace;
+  font-size: 16px;
+}
+input {
+  font-size: 14px;
 }
 </style>

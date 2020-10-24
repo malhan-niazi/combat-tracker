@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="">
-      <h5>combatant tracker</h5>
+      <b>Combatant Tracker</b>
       <combatant-list
         v-bind:combatants="combatants"
         @update-selection="updateSelection"
@@ -9,8 +9,11 @@
       />
     </div>
     <div class="">
-      <h5>combatant detail</h5>
-      <combatant-detail v-if="showCombatantDetail" v-bind:combatant="combatants[currentIndex]" />
+      <b>Combatant Detail</b>
+      <combatant-detail
+        v-if="showCombatantDetail"
+        v-bind:combatant="combatants[currentIndex]"
+      />
     </div>
   </div>
 </template>
@@ -23,23 +26,23 @@ export default {
   name: "CombatantTracker",
   components: {
     CombatantList,
-    CombatantDetail
+    CombatantDetail,
   },
   props: {
-    combatants: Array
+    combatants: Array,
   },
   data() {
     return {
       currentIndex: 0,
-      showCombatantDetail: false
+      showCombatantDetail: false,
     };
   },
   methods: {
     updateSelection(index, showDetail) {
       this.currentIndex = index;
       this.showCombatantDetail = showDetail;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="!displayForm" class="" >
+    <div v-if="!displayForm" class="">
       <div class="">
-        <h5>add combatant</h5>
+        <b>Add Combatant</b>
         <div class="">
           <div class="">
             <button
@@ -13,10 +13,8 @@
                 isNpc = false;
               "
             >
-              <i class="">add</i> player
+              Add Player
             </button>
-          </div>
-          <div class="">
             <button
               type="button"
               class=""
@@ -25,19 +23,19 @@
                 isNpc = true;
               "
             >
-              <i class="">add</i>monster
+              Add Monster
             </button>
           </div>
         </div>
       </div>
     </div>
     <!-- monster / character input form -->
-    <div v-if="displayForm" class="" >
+    <div v-if="displayForm" class="">
       <div class="">
-        <h5 col s12>
-          add
-          <span>{{ isNpc ? 'monster' : 'character' }}</span>
-        </h5>
+        <div>
+          Add
+          <span>{{ isNpc ? "Monster" : "Character" }}</span>
+        </div>
         <label>
           <input type="checkbox" v-model="makeStatBlock" class="" />
           <span>Stat Block</span>
@@ -71,9 +69,9 @@ export default {
   name: "AddCombatantComponent",
   components: {
     BasicForm,
-    StatBlockForm
+    StatBlockForm,
   },
-  data: function() {
+  data: function () {
     return this.init();
   },
   methods: {
@@ -85,10 +83,10 @@ export default {
       return {
         isNpc: false,
         displayForm: false,
-        makeStatBlock: false
+        makeStatBlock: false,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -4,7 +4,7 @@
       <div class="">
         <div class="">
           <div class="">
-            <a href class="">tracker</a>
+            <a href class="">Tracker</a>
           </div>
         </div>
       </div>

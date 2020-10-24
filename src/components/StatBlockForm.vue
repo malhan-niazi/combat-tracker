@@ -3,96 +3,88 @@
     <form class="" v-on:submit.prevent>
       <div class="">
         <div class="">
+          <label for="name">Name</label>
           <input id="name" type="text" v-model="name" />
-          <label for="name">name</label>
         </div>
       </div>
       <div class="">
         <div class="">
+          <label for="hitPoints">Hit Points</label>
           <input id="hitPoints" type="number" v-model.number="hitPoints" />
-          <label for="hitPoints">hit points</label>
         </div>
         <div class="">
+          <label for="armorClass">Armor Class</label>
           <input id="armorClass" type="number" v-model.number="armorClass" />
-          <label for="armorClass">armor class</label>
         </div>
       </div>
       <div class="">
         <div class="">
+          <label for="init">Initative</label>
           <input id="init" type="number" v-model.number="initiative" />
-          <label for="init">initiative</label>
         </div>
         <div class="">
-          <input id="passivePerception" type="number" v-model.number="passivePerception" />
-          <label for="passivePerception">pass. perc.</label>
+          <label for="passivePerception">Passive Perception</label>
+          <input
+            id="passivePerception"
+            type="number"
+            v-model.number="passivePerception"
+          />
         </div>
       </div>
       <div class="">
         <div class="">
           <select class="">
-            <option value disabled selected>select size</option>
-            <option value="tn">tiny</option>
-            <option value="sm">small</option>
-            <option value="md">medium</option>
-            <option value="lg">large</option>
-            <option value="hu">huge</option>
-            <option value="gr">gargantuan</option>
+            <option value disabled selected>Select size</option>
+            <option value="tn">Tiny</option>
+            <option value="sm">Small</option>
+            <option value="md">Medium</option>
+            <option value="lg">Large</option>
+            <option value="hu">Huge</option>
+            <option value="gr">Gargantuan</option>
           </select>
         </div>
         <div class="">
+          <label for="speed">Speed</label>
           <input id="speed" type="number" v-model.number="speed" />
-          <label for="speed">speed</label>
         </div>
       </div>
       <div class="">
         <div class="">
           <div class="">
+            <label for="instrit">STR</label>
             <input id="str" type="number" v-model.number="abilityScore.str" />
-            <label for="instrit">str</label>
           </div>
           <div class="">
+            <label for="dex">DEX</label>
             <input id="dex" type="number" v-model.number="abilityScore.dex" />
-            <label for="dex">dex</label>
           </div>
           <div class="">
+            <label for="con">CON</label>
             <input id="con" type="number" v-model.number="abilityScore.con" />
-            <label for="con">con</label>
           </div>
         </div>
         <div class="">
           <div class="">
+            <label for="int">INT</label>
             <input id="int" type="number" v-model.number="abilityScore.int" />
-            <label for="int">int</label>
           </div>
           <div class="">
+            <label for="wis">WIS</label>
             <input id="wis" type="number" v-model.number="abilityScore.wis" />
-            <label for="wis">wis</label>
           </div>
           <div class="">
+            <label for="cha">CHA</label>
             <input id="cha" type="number" v-model.number="abilityScore.cha" />
-            <label for="cha">cha</label>
           </div>
         </div>
       </div>
       <div class="">
         <div class="">
-          <button
-            class=""
-            type="submit"
-            name="add"
-            @click="addCombatant"
-          >
-            <i class="">check</i> ok
+          <button class="" type="submit" name="add" @click="addCombatant">
+            ok
           </button>
-        </div>
-        <div class="">
-          <button
-            type="submit"
-            class=""
-            name="cancel"
-            @click="cancel"
-          >
-            <i class="">clear</i> cancel
+          <button type="submit" class="" name="cancel" @click="cancel">
+            cancel
           </button>
         </div>
       </div>
@@ -104,9 +96,9 @@
 export default {
   name: "StatBlockForm",
   props: {
-    isNpc: Boolean
+    isNpc: Boolean,
   },
-  data: function() {
+  data: function () {
     return this.init();
   },
   methods: {
@@ -131,7 +123,7 @@ export default {
         passivePerception,
         size,
         speed,
-        abilityScore
+        abilityScore,
       });
       this.reset();
     },
@@ -150,8 +142,8 @@ export default {
           con: "",
           int: "",
           wis: "",
-          cha: ""
-        }
+          cha: "",
+        },
       };
     },
     reset() {
@@ -163,8 +155,8 @@ export default {
       this.size = this.init().size;
       this.speed = this.init().speed;
       this.abilityScore = this.init().abilityScore;
-    }
-  }
+    },
+  },
 };
 </script>
 

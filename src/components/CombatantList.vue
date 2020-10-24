@@ -5,12 +5,10 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>HP</th>
-            <th>AC</th>
-            <th>Pass. Perc.</th>
-            <th @click="sortDescending">
-              Init.
-            </th>
+            <th>Hit Points</th>
+            <th>Armor Class</th>
+            <th>Perception</th>
+            <th @click="sortDescending">Initiative</th>
           </tr>
         </thead>
         <tbody>

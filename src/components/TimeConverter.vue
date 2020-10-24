@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="">
-      <h5>{{ msg }}</h5>
+      <span>{{ msg }}</span>
       <div class="">
         <input
           type="number"
@@ -9,7 +9,11 @@
           placeholder="Value"
           v-model.number="input"
         />
-        <small id="valueHelp">Enter a value, and select the corresponding unit of time.</small>
+      </div>
+      <div>
+        <span id="valueHelp"
+          >Enter a value, and select the corresponding unit of time.</span
+        >
       </div>
       <div class="">
         <select class="" v-model="selection">
@@ -36,25 +40,25 @@ const DECIMAL_PLACES = 2;
 
 export default {
   name: "TimeConverter",
-  data: function() {
+  data: function () {
     return {
       msg: "time converter",
       input: "",
-      selection: SELECTION_HOUR
+      selection: SELECTION_HOUR,
     };
   },
   computed: {
-    seconds: function() {
+    seconds: function () {
       return this.toSeconds();
     },
-    conversion: function() {
+    conversion: function () {
       const seconds = this.seconds % FIXED_TIME_UNIT;
       let minutes = Math.floor(this.seconds / FIXED_TIME_UNIT);
       const hours = Math.floor(minutes / FIXED_TIME_UNIT);
       minutes = minutes % FIXED_TIME_UNIT;
       return `${hours} hour(s), ${minutes} minute(s) and ${seconds} second(s)`;
     },
-    rounds: function() {
+    rounds: function () {
       let fixed = 0;
       if (this.seconds % SECONDS_PER_ROUND > 0) {
         fixed = (this.seconds / SECONDS_PER_ROUND).toFixed(DECIMAL_PLACES);
@@ -62,7 +66,7 @@ export default {
         fixed = this.seconds / SECONDS_PER_ROUND;
       }
       return `${fixed} round(s)`;
-    }
+    },
   },
   methods: {
     toSeconds() {
@@ -79,8 +83,8 @@ export default {
         default:
           return Math.floor(this.input);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
