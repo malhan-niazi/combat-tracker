@@ -107,10 +107,15 @@ input,
 select {
   font-family: monospace;
   font-size: 0.75rem;
-  box-sizing: border-box;
-  width: 100%;
 }
 div {
-  outline: 1px solid lightgray;
+  /* outline: 1px solid lightgray; */
+}
+.content {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 750px;
 }
 </style>

@@ -30,31 +30,25 @@
     <!-- monster / character input form -->
     <div v-if="displayForm" class="">
       <div>
-        <div>
-          Add
-          <span>{{ isNpc ? "Monster" : "Character" }}</span>
-        </div>
-        <div>
-          <span>Create Stat Block</span>
-          <input type="checkbox" v-model="makeStatBlock" class="" />
-        </div>
+        Add
+        <span>{{ isNpc ? "Monster" : "Character" }}</span>
       </div>
-      <div class="">
-        <stat-block-form
-          v-if="makeStatBlock"
-          class=""
-          @add-combatant="addCombatant"
-          @cancel-add="displayForm = !displayForm"
-          v-bind:isNpc="isNpc"
-        ></stat-block-form>
-        <basic-form
-          v-if="!makeStatBlock"
-          class=""
-          @add-combatant="addCombatant"
-          @cancel-add="displayForm = !displayForm"
-          v-bind:isNpc="isNpc"
-        ></basic-form>
-      </div>
+      <input type="checkbox" v-model="makeStatBlock" class="stat-block-check" />
+      <label for="stat-block-check">Create Stat Block</label>
+      <stat-block-form
+        v-if="makeStatBlock"
+        class=""
+        @add-combatant="addCombatant"
+        @cancel-add="displayForm = !displayForm"
+        v-bind:isNpc="isNpc"
+      ></stat-block-form>
+      <basic-form
+        v-if="!makeStatBlock"
+        class=""
+        @add-combatant="addCombatant"
+        @cancel-add="displayForm = !displayForm"
+        v-bind:isNpc="isNpc"
+      ></basic-form>
     </div>
   </div>
 </template>
