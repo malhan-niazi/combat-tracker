@@ -1,92 +1,76 @@
 <template>
-  <div class="">
+  <div class="input-form">
     <form class="" v-on:submit.prevent>
-      <div class="">
-        <div class="">
-          <label for="name">Name</label>
-          <input id="name" type="text" v-model="name" />
-        </div>
+      <div class="input-field-container">
+        <label for="name">Name</label>
+        <input id="name" type="text" v-model="name" />
       </div>
-      <div class="">
-        <div class="">
-          <label for="hitPoints">Hit Points</label>
-          <input id="hitPoints" type="number" v-model.number="hitPoints" />
-        </div>
-        <div class="">
-          <label for="armorClass">Armor Class</label>
-          <input id="armorClass" type="number" v-model.number="armorClass" />
-        </div>
+      <div class="input-field-container">
+        <label for="hitPoints">Hit Points</label>
+        <input id="hitPoints" type="number" v-model.number="hitPoints" />
       </div>
-      <div class="">
-        <div class="">
-          <label for="init">Initative</label>
-          <input id="init" type="number" v-model.number="initiative" />
-        </div>
-        <div class="">
-          <label for="passivePerception">Passive Perception</label>
-          <input
-            id="passivePerception"
-            type="number"
-            v-model.number="passivePerception"
-          />
-        </div>
+      <div class="input-field-container">
+        <label for="armorClass">Armor Class</label>
+        <input id="armorClass" type="number" v-model.number="armorClass" />
       </div>
-      <div class="">
-        <div class="">
-          <select class="">
-            <option value disabled selected>Select size</option>
-            <option value="tn">Tiny</option>
-            <option value="sm">Small</option>
-            <option value="md">Medium</option>
-            <option value="lg">Large</option>
-            <option value="hu">Huge</option>
-            <option value="gr">Gargantuan</option>
-          </select>
-        </div>
-        <div class="">
-          <label for="speed">Speed</label>
-          <input id="speed" type="number" v-model.number="speed" />
-        </div>
+      <div class="input-field-container">
+        <label for="init">Initiative</label>
+        <input id="init" type="number" v-model.number="initiative" />
       </div>
-      <div class="">
-        <div class="">
-          <div class="">
-            <label for="instrit">STR</label>
-            <input id="str" type="number" v-model.number="abilityScore.str" />
-          </div>
-          <div class="">
-            <label for="dex">DEX</label>
-            <input id="dex" type="number" v-model.number="abilityScore.dex" />
-          </div>
-          <div class="">
-            <label for="con">CON</label>
-            <input id="con" type="number" v-model.number="abilityScore.con" />
-          </div>
-        </div>
-        <div class="">
-          <div class="">
-            <label for="int">INT</label>
-            <input id="int" type="number" v-model.number="abilityScore.int" />
-          </div>
-          <div class="">
-            <label for="wis">WIS</label>
-            <input id="wis" type="number" v-model.number="abilityScore.wis" />
-          </div>
-          <div class="">
-            <label for="cha">CHA</label>
-            <input id="cha" type="number" v-model.number="abilityScore.cha" />
-          </div>
-        </div>
+      <div class="input-field-container">
+        <label for="passivePerception">Passive Perception</label>
+        <input
+          id="passivePerception"
+          type="number"
+          v-model.number="passivePerception"
+        />
       </div>
-      <div class="">
-        <div class="">
-          <button class="" type="submit" name="add" @click="addCombatant">
-            ok
-          </button>
-          <button type="submit" class="" name="cancel" @click="cancel">
-            cancel
-          </button>
-        </div>
+      <div class="input-field-container">
+        <label for="sizeSelect">Select Size</label>
+        <select class="">
+          <option value="tn" selected>Tiny</option>
+          <option value="sm">Small</option>
+          <option value="md">Medium</option>
+          <option value="lg">Large</option>
+          <option value="hu">Huge</option>
+          <option value="gr">Gargantuan</option>
+        </select>
+      </div>
+      <div class="input-field-container">
+        <label for="speed">Speed</label>
+        <input id="speed" type="number" v-model.number="speed" />
+      </div>
+      <div class="input-field-container">
+        <label for="instrit">STR</label>
+        <input id="str" type="number" v-model.number="abilityScore.str" />
+      </div>
+      <div class="input-field-container">
+        <label for="dex">DEX</label>
+        <input id="dex" type="number" v-model.number="abilityScore.dex" />
+      </div>
+      <div class="input-field-container">
+        <label for="con">CON</label>
+        <input id="con" type="number" v-model.number="abilityScore.con" />
+      </div>
+      <div class="input-field-container">
+        <label for="int">INT</label>
+        <input id="int" type="number" v-model.number="abilityScore.int" />
+      </div>
+      <div class="input-field-container">
+        <label for="wis">WIS</label>
+        <input id="wis" type="number" v-model.number="abilityScore.wis" />
+      </div>
+      <div class="input-field-container">
+        <label for="cha">CHA</label>
+        <input id="cha" type="number" v-model.number="abilityScore.cha" />
+      </div>
+      <div class="input-field-container">
+        <button class="" type="submit" name="add" @click="addCombatant">
+          ok
+        </button>
+        <button type="submit" class="" name="cancel" @click="cancel">
+          cancel
+        </button>
       </div>
     </form>
   </div>
@@ -161,13 +145,12 @@ export default {
 </script>
 
 <style scoped>
-.btn-block {
-  width: 100%;
+.input-form {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.margin-btm-none {
-  margin-bottom: 0;
-}
-.margin-top-small {
-  margin-top: 5px;
+.input-field-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 </style>

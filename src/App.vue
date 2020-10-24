@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="content">
     <header-component />
     <div class="monospace">
       <div class="">
@@ -90,14 +90,27 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.monospace,
-a,
-button,
-input {
+.monospace {
   font-family: monospace;
-  font-size: 16px;
+  font-size: 1rem;
 }
-input {
-  font-size: 14px;
+button {
+  font-family: monospace;
+  font-size: 0.75rem;
+  width: 100%;
+}
+a {
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+input,
+select {
+  font-family: monospace;
+  font-size: 0.75rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+div {
+  outline: 1px solid lightgray;
 }
 </style>

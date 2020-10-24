@@ -1,45 +1,37 @@
 <template>
-  <div class="">
-    <form class="" v-on:submit.prevent>
-      <div class="">
-        <div class="">
-          <label for="name">Name</label>
-          <input id="name" type="text" v-model="name" />
-        </div>
+  <div class="input-form">
+    <form v-on:submit.prevent>
+      <div class="input-field-container">
+        <label for="name">Name</label>
+        <input id="name" type="text" v-model="name" />
       </div>
-      <div class="">
-        <div class="">
-          <label for="hitPoints">Hit Points</label>
-          <input id="hitPoints" type="number" v-model.number="hitPoints" />
-        </div>
-        <div class="">
-          <label for="armorClass">Armor Class</label>
-          <input id="armorClass" type="number" v-model.number="armorClass" />
-        </div>
+      <div class="input-field-container">
+        <label for="hitPoints">Hit Points</label>
+        <input id="hitPoints" type="number" v-model.number="hitPoints" />
       </div>
-      <div class="">
-        <div class="">
-          <label for="init">Initiative</label>
-          <input id="init" type="number" v-model.number="initiative" />
-        </div>
-        <div class="">
-          <label for="passivePerception">Passive Preception</label>
-          <input
-            id="passivePerception"
-            type="number"
-            v-model.number="passivePerception"
-          />
-        </div>
+      <div class="input-field-container">
+        <label for="armorClass">Armor Class</label>
+        <input id="armorClass" type="number" v-model.number="armorClass" />
       </div>
-      <div class="">
-        <div class="">
-          <button class="" type="submit" name="add" @click="addCombatant">
-            ok
-          </button>
-          <button type="submit" class="" name="cancel" @click="cancel">
-            cancel
-          </button>
-        </div>
+      <div class="input-field-container">
+        <label for="init">Initiative</label>
+        <input id="init" type="number" v-model.number="initiative" />
+      </div>
+      <div class="input-field-container">
+        <label for="passivePerception">Passive Perception</label>
+        <input
+          id="passivePerception"
+          type="number"
+          v-model.number="passivePerception"
+        />
+      </div>
+      <div class="input-field-container">
+        <button class="" type="submit" name="add" @click="addCombatant">
+          ok
+        </button>
+        <button type="submit" class="" name="cancel" @click="cancel">
+          cancel
+        </button>
       </div>
     </form>
   </div>
@@ -95,13 +87,12 @@ export default {
 </script>
 
 <style scoped>
-.btn-block {
-  width: 100%;
+.input-form {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.margin-btm-none {
-  margin-bottom: 0;
-}
-.margin-top-small {
-  margin-top: 5px;
+.input-field-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 </style>

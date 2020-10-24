@@ -40,7 +40,7 @@
     </div>
     <div class="">
       <div class="">
-        <b>Preception</b>
+        <b>Perception</b>
       </div>
       <div class="">
         <input

@@ -1,45 +1,43 @@
 <template>
   <div>
     <div v-if="!displayForm" class="">
-      <div class="">
+      <div class="add-combatant-form">
         <b>Add Combatant</b>
-        <div class="">
-          <div class="">
-            <button
-              type="button"
-              class=""
-              @click="
-                displayForm = !displayForm;
-                isNpc = false;
-              "
-            >
-              Add Player
-            </button>
-            <button
-              type="button"
-              class=""
-              @click="
-                displayForm = !displayForm;
-                isNpc = true;
-              "
-            >
-              Add Monster
-            </button>
-          </div>
+        <div class="add-combatant-form-buttons">
+          <button
+            type="button"
+            class=""
+            @click="
+              displayForm = !displayForm;
+              isNpc = false;
+            "
+          >
+            Add Player
+          </button>
+          <button
+            type="button"
+            class=""
+            @click="
+              displayForm = !displayForm;
+              isNpc = true;
+            "
+          >
+            Add Monster
+          </button>
         </div>
       </div>
     </div>
     <!-- monster / character input form -->
     <div v-if="displayForm" class="">
-      <div class="">
+      <div>
         <div>
           Add
           <span>{{ isNpc ? "Monster" : "Character" }}</span>
         </div>
-        <label>
+        <div>
+          <span>Create Stat Block</span>
           <input type="checkbox" v-model="makeStatBlock" class="" />
-          <span>Stat Block</span>
-        </label>
+        </div>
       </div>
       <div class="">
         <stat-block-form
@@ -91,7 +89,8 @@ export default {
 </script>
 
 <style scoped>
-.btn-block {
-  width: 100%;
+.add-combatant-form-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 </style>

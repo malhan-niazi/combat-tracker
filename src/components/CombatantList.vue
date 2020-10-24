@@ -1,27 +1,19 @@
 <template>
-  <div class="">
-    <div class="">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Hit Points</th>
-            <th>Armor Class</th>
-            <th>Perception</th>
-            <th @click="sortDescending">Initiative</th>
-          </tr>
-        </thead>
-        <tbody>
-          <combatant-item
-            v-for="(combatant, index) in combatants"
-            :key="index"
-            v-bind:combatant="combatant"
-            v-bind:index="index"
-            @update-selection="updateSelection"
-          ></combatant-item>
-        </tbody>
-      </table>
+  <div id="combatant-list" class="combatant-list">
+    <div id="combatant-headers" class="combatant-headers">
+      <div>Name</div>
+      <div>Hit Points</div>
+      <div>Armor Class</div>
+      <div>Perception</div>
+      <div @click="sortDescending">Initiative</div>
     </div>
+    <combatant-item
+      v-for="(combatant, index) in combatants"
+      :key="index"
+      v-bind:combatant="combatant"
+      v-bind:index="index"
+      @update-selection="updateSelection"
+    ></combatant-item>
   </div>
 </template>
 
@@ -54,4 +46,9 @@ export default {
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.combatant-headers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+</style>
