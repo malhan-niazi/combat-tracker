@@ -1,10 +1,10 @@
 <template>
-  <div class="navbar-fixed">
+  <div class="">
     <nav>
-      <div class="nav-wrapper">
-        <div class="row">
-          <div class="col">
-            <a href class="brand-logo">tracker</a>
+      <div class="">
+        <div class="">
+          <div class="">
+            <a href class="">tracker</a>
           </div>
         </div>
       </div>

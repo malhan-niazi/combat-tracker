@@ -1,19 +1,18 @@
 <template>
-  <div class="row">
-    <div class="col">
+  <div class="">
+    <div class="">
       <h5>{{ msg }}</h5>
-      <div class="input-field margin-btm-none margin-top-small">
+      <div class="">
         <input
           type="number"
           id="value"
-          aria-describedby="value"
           placeholder="Value"
           v-model.number="input"
         />
         <small id="valueHelp">Enter a value, and select the corresponding unit of time.</small>
       </div>
-      <div class="input-field margin-btm-none margin-top-small">
-        <select class="browser-default" v-model="selection">
+      <div class="">
+        <select class="" v-model="selection">
           <option value disabled selected>select time unit</option>
           <option>hour</option>
           <option>minute</option>

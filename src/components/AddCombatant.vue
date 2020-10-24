@@ -1,59 +1,59 @@
 <template>
   <div>
-    <div class="row" v-if="!displayForm">
-      <div class="col s12">
+    <div v-if="!displayForm" class="" >
+      <div class="">
         <h5>add combatant</h5>
-        <div class="row">
-          <div class="col s6">
+        <div class="">
+          <div class="">
             <button
               type="button"
-              class="btn btn-block blue"
+              class=""
               @click="
                 displayForm = !displayForm;
                 isNpc = false;
               "
             >
-              <i class="tiny material-icons left">add</i> player
+              <i class="">add</i> player
             </button>
           </div>
-          <div class="col s6">
+          <div class="">
             <button
               type="button"
-              class="btn btn-block red"
+              class=""
               @click="
                 displayForm = !displayForm;
                 isNpc = true;
               "
             >
-              <i class="tiny material-icons left">add</i>monster
+              <i class="">add</i>monster
             </button>
           </div>
         </div>
       </div>
     </div>
     <!-- monster / character input form -->
-    <div class="row" v-if="displayForm">
-      <div class="col">
+    <div v-if="displayForm" class="" >
+      <div class="">
         <h5 col s12>
           add
-          <span :class="isNpc ? 'red-text' : 'blue-text'">{{ isNpc ? 'monster' : 'character' }}</span>
+          <span>{{ isNpc ? 'monster' : 'character' }}</span>
         </h5>
         <label>
-          <input type="checkbox" class="filled-in" v-model="makeStatBlock" />
+          <input type="checkbox" v-model="makeStatBlock" class="" />
           <span>Stat Block</span>
         </label>
       </div>
-      <div class="row">
+      <div class="">
         <stat-block-form
           v-if="makeStatBlock"
-          class="col s12"
+          class=""
           @add-combatant="addCombatant"
           @cancel-add="displayForm = !displayForm"
           v-bind:isNpc="isNpc"
         ></stat-block-form>
         <basic-form
           v-if="!makeStatBlock"
-          class="col s12"
+          class=""
           @add-combatant="addCombatant"
           @cancel-add="displayForm = !displayForm"
           v-bind:isNpc="isNpc"

@@ -1,11 +1,10 @@
 <template>
   <tr>
     <td>
-      <div class="name-width">
+      <div class="">
         <a
           href
           @click.prevent="updateSelection"
-          :class="combatant.isNpc ? 'red-text' : 'blue-text'"
         >{{ combatant.name }}</a>
       </div>
     </td>

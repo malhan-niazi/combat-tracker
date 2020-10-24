@@ -1,52 +1,49 @@
 <template>
-  <div class="row">
-    <form class="col s12" v-on:submit.prevent>
-      <div class="row margin-btm-none margin-top-small">
-        <div class="input-field col s12 margin-btm-none margin-top-small">
+  <div class="">
+    <form class="" v-on:submit.prevent>
+      <div class="">
+        <div class="">
           <input id="name" type="text" v-model="name" />
           <label for="name">name</label>
         </div>
       </div>
-      <div class="row margin-btm-none margin-top-small">
-        <div class="input-field col s6 margin-btm-none margin-top-small">
+      <div class="">
+        <div class="">
           <input id="hitPoints" type="number" v-model.number="hitPoints" />
           <label for="hitPoints">hit points</label>
         </div>
-        <div class="input-field col s6 margin-btm-none margin-top-small">
+        <div class="">
           <input id="armorClass" type="number" v-model.number="armorClass" />
           <label for="armorClass">armor class</label>
         </div>
       </div>
-      <div class="row margin-top-small">
-        <div class="input-field col s6 margin-btm-none margin-top-small">
+      <div class="">
+        <div class="">
           <input id="init" type="number" v-model.number="initiative" />
           <label for="init">initiative</label>
         </div>
-        <div class="input-field col s6 margin-btm-none margin-top-small">
+        <div class="">
           <input id="passivePerception" type="number" v-model.number="passivePerception" />
-          <label for="passivePerception">pass. perc.</label>
+          <label for="passivePerception">passive perception</label>
         </div>
       </div>
-      <div class="row">
-        <div class="col s6">
+      <div class="">
+        <div class="">
           <button
-            class="btn-small btn-block"
+            class=""
             type="submit"
             name="add"
-            :class="isNpc ? 'red' : 'blue'"
             @click="addCombatant"
-          >
-            <i class="tiny material-icons left">check</i> ok
+          >ok
           </button>
         </div>
-        <div class="col s6">
+        <div class="">
           <button
             type="submit"
-            class="btn-small btn-block amber darken-1"
+            class=""
             name="cancel"
             @click="cancel"
-          >
-            <i class="material-icons left">clear</i> cancel
+          >cancel
           </button>
         </div>
       </div>

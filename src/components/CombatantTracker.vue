@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col s12 m6 l6">
+  <div class="">
+    <div class="">
       <h5>combatant tracker</h5>
       <combatant-list
         v-bind:combatants="combatants"
@@ -8,7 +8,7 @@
         @hide-detail="showCombatantDetail = false"
       />
     </div>
-    <div class="col s12 m6 l6">
+    <div class="">
       <h5>combatant detail</h5>
       <combatant-detail v-if="showCombatantDetail" v-bind:combatant="combatants[currentIndex]" />
     </div>

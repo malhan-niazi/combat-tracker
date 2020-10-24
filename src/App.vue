@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <header-component />
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col s12 m12 l3">
+    <div class="">
+      <div class="">
+        <div class="">
           <add-combatant @add-combatant="add" />
         </div>
-        <div class="col s12 m12 l7">
+        <div class="">
           <combatant-tracker v-bind:combatants="combatants" />
         </div>
-        <div class="col s12 m12 l2">
+        <div class="">
           <time-converter />
         </div>
       </div>
@@ -91,5 +91,6 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font: monospace;
 }
 </style>

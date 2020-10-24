@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col">
+  <div class="">
+    <div class="">
       <table>
         <thead>
           <tr>
@@ -10,7 +10,6 @@
             <th>Pass. Perc.</th>
             <th @click="sortDescending">
               Init.
-              <i class="tiny material-icons right">sort</i>
             </th>
           </tr>
         </thead>
@@ -21,9 +20,6 @@
             v-bind:combatant="combatant"
             v-bind:index="index"
             @update-selection="updateSelection"
-            :class="
-              showDetail && index === currentIndex ? 'grey lighten-4' : ''
-            "
           ></combatant-item>
         </tbody>
       </table>
