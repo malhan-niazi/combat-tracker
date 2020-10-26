@@ -90,26 +90,20 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.monospace {
-  font-family: monospace;
-  font-size: 1rem;
+body,
+input,
+button {
+  font-family: "DM Mono", monospace;
+  font-size: 16px;
 }
 button {
-  font-family: monospace;
-  font-size: 0.75rem;
-  width: 100%;
-}
-a {
-  font-family: monospace;
   font-size: 0.75rem;
 }
-input,
-select {
-  font-family: monospace;
-  font-size: 0.75rem;
+input {
+  font-size: 0.85rem;
 }
 div {
-  /* outline: 1px solid lightgray; */
+  outline: 1px dotted lightgray;
 }
 .content {
   padding-right: 15px;

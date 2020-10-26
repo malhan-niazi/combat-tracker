@@ -1,11 +1,11 @@
 <template>
-  <div id="combatant-list" class="combatant-list">
-    <div id="combatant-headers" class="combatant-headers">
-      <div>Name</div>
-      <div>Hit Points</div>
-      <div>Armor Class</div>
-      <div>Perception</div>
-      <div @click="sortDescending">Initiative</div>
+  <div id="combatant-list">
+    <div id="combatant-list-headers" class="grid col-5x">
+      <div class="center__vertical">Name</div>
+      <div class="center__vertical">Hit Points</div>
+      <div class="center__vertical">Armor Class</div>
+      <div class="center__vertical">Perception</div>
+      <div @click="sortDescending" class="center__vertical">Initiative</div>
     </div>
     <combatant-item
       v-for="(combatant, index) in combatants"
@@ -47,8 +47,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.combatant-headers {
+.grid {
   display: grid;
+}
+.col-5x {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.center__vertical {
+  display: flex;
+  align-items: center;
 }
 </style>
