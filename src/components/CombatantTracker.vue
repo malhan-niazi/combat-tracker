@@ -8,12 +8,9 @@
         @hide-detail="showCombatantDetail = false"
       />
     </div>
-    <div class="">
+    <div v-if="showCombatantDetail" class="">
       <b>Combatant Detail</b>
-      <combatant-detail
-        v-if="showCombatantDetail"
-        v-bind:combatant="combatants[currentIndex]"
-      />
+      <combatant-detail v-bind:combatant="combatants[currentIndex]" />
     </div>
   </div>
 </template>

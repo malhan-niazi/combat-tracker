@@ -57,6 +57,16 @@ export default {
           initiative: 13,
           passivePerception: 10,
           isNpc: false,
+          size: "md",
+          speed: 20,
+          abilityScore: {
+            str: 14,
+            dex: 12,
+            con: 16,
+            int: 8,
+            wis: 12,
+            cha: 9,
+          },
         },
         {
           name: "elf",
@@ -65,6 +75,16 @@ export default {
           initiative: 18,
           passivePerception: 14,
           isNpc: false,
+          size: "md",
+          speed: 30,
+          abilityScore: {
+            str: 8,
+            dex: 17,
+            con: 10,
+            int: 12,
+            wis: 12,
+            cha: 13,
+          },
         },
         {
           name: "dragon",
@@ -73,6 +93,16 @@ export default {
           initiative: 14,
           passivePerception: 18,
           isNpc: true,
+          size: "md",
+          speed: 30,
+          abilityScore: {
+            str: 20,
+            dex: 17,
+            con: 23,
+            int: 15,
+            wis: 19,
+            cha: 19,
+          },
         },
       ],
     };
@@ -103,7 +133,7 @@ input {
   font-size: 0.85rem;
 }
 div {
-  outline: 1px dotted lightgray;
+  outline: 0px dotted lightgray;
 }
 .content {
   padding-right: 15px;

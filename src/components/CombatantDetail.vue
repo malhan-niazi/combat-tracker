@@ -6,7 +6,7 @@
     </div>
     <div class="">
       <b>Size</b>
-      <div>{{ combatant.name }}</div>
+      <div>{{ size }}</div>
     </div>
     <div class="">
       <b>Armor Class</b>
@@ -51,7 +51,7 @@
         />
       </div>
     </div>
-    <div class="">
+    <div v-if="combatant.speed" class="">
       <b>Speed</b>
       <div class="">
         <input
@@ -62,76 +62,45 @@
         />
       </div>
     </div>
-    <div v-if="combatant.abilityScore" class="ability-scores">
-      <div class="ability-score-item">
-        <b>STR</b>
-        <input
-          class=""
-          type="number"
-          id="str"
-          v-model.number="combatant.abilityScore.str"
-        />
-        <span>{{ modifier(combatant.abilityScore.str) }}</span>
-      </div>
-      <div class="ability-score-item">
-        <b>DEX</b>
-        <input
-          class=""
-          type="number"
-          id="dex"
-          v-model.number="combatant.abilityScore.dex"
-        />
-        <span>{{ modifier(combatant.abilityScore.dex) }}</span>
-      </div>
-      <div class="ability-score-item">
-        <b>CON</b>
-        <input
-          class=""
-          type="number"
-          id="con"
-          v-model.number="combatant.abilityScore.con"
-        />
-        <span>{{ modifier(combatant.abilityScore.con) }}</span>
-      </div>
-      <div class="ability-score-item">
-        <b>INT</b>
-        <input
-          class=""
-          type="number"
-          id="int"
-          v-model.number="combatant.abilityScore.int"
-        />
-        <span>{{ modifier(combatant.abilityScore.int) }}</span>
-      </div>
-      <div class="ability-score-item">
-        <b>WIS</b>
-        <input
-          class=""
-          type="number"
-          id="wis"
-          v-model.number="combatant.abilityScore.wis"
-        />
-        <span>{{ modifier(combatant.abilityScore.wis) }}</span>
-      </div>
-      <div class="ability-score-item">
-        <b>CHA</b>
-        <input
-          class=""
-          type="number"
-          id="cha"
-          v-model.number="combatant.abilityScore.cha"
-        />
-        <span>{{ modifier(combatant.abilityScore.cha) }}</span>
-      </div>
+    <div v-if="combatant.abilityScore" class="grid col-2x">
+      <ability-score
+        :score="combatant.abilityScore.str"
+        ability="STR"
+      ></ability-score>
+      <ability-score
+        :score="combatant.abilityScore.dex"
+        ability="DEX"
+      ></ability-score>
+      <ability-score
+        :score="combatant.abilityScore.con"
+        ability="CON"
+      ></ability-score>
+      <ability-score
+        :score="combatant.abilityScore.int"
+        ability="INT"
+      ></ability-score>
+      <ability-score
+        :score="combatant.abilityScore.wis"
+        ability="WIS"
+      ></ability-score>
+      <ability-score
+        :score="combatant.abilityScore.cha"
+        ability="CHA"
+      ></ability-score>
     </div>
   </div>
 </template>
 
 <script>
+import AbilityScore from "./minis/AbilityScore";
+
 export default {
   name: "CombatantDetail",
   props: {
     combatant: Object,
+  },
+  components: {
+    AbilityScore,
   },
   computed: {
     size() {
@@ -158,23 +127,33 @@ export default {
       return Math.floor((abilityScore - 10) / 2);
     },
     modifierColor(modifier) {
-      return modifier < 0
-        ? "red-text"
-        : modifier === 0
-        ? "grey-text"
-        : "green-text";
+      return modifier < 0 ? "red" : modifier === 0 ? "grey" : "green";
     },
   },
 };
 </script>
 
 <style scoped>
-.ability-scores {
+.grid {
   display: grid;
+}
+.col-2x {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.ability-score-item {
-  display: grid;
+.col-3x {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.center__vertical {
+  display: flex;
+  align-items: center;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.grey {
+  color: gray;
 }
 </style>
