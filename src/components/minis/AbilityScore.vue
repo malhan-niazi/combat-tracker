@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  // TODO fix mutating prop error.
   name: "AbilityScoreComponent",
   props: {
     score: Number,
