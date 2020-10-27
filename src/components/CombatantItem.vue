@@ -1,16 +1,21 @@
 <template>
-  <div class="grid col-5x">
-    <div href @click.prevent="updateSelection" class="center__vertical">
+  <div>
+    <a
+      href
+      @click.prevent="updateSelection"
+      class="name"
+      :class="combatant.isNpc ? 'npc' : 'player'"
+    >
       {{ combatant.name }}
-    </div>
-    <div class="grid col-2x">
+    </a>
+    <div class="row">
       <input
         type="number"
         id="hitPoints"
         v-model.number="combatant.hitPoints"
-        class="field-value"
+        class="input-hp"
       />
-      <span for="maxHitPoints" class="center__vertical input-static-text"
+      <span for="maxHitPoints" class="input-static-text"
         >/{{ maxHitPoints }}</span
       >
     </div>
@@ -64,24 +69,27 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.field-value {
-  box-sizing: border-box;
-  width: 100%;
-}
-.grid {
-  display: grid;
-}
-.col-2x {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.col-5x {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-.center__vertical {
+.row {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.input-hp {
+  max-width: 3.5rem;
+}
+.name {
+  display: block;
+  margin: auto auto auto 0rem;
+  text-decoration: none;
+}
+.npc {
+  color: indianred;
+}
+.player {
+  color: steelblue;
 }
 .input-static-text {
   font-size: 0.85rem;
+  margin: auto 0.5rem;
 }
 </style>

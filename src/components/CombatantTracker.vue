@@ -6,10 +6,10 @@
         v-bind:combatants="combatants"
         @update-selection="updateSelection"
         @hide-detail="showCombatantDetail = false"
+        class="margin-bottom-section"
       />
     </div>
-    <div v-if="showCombatantDetail" class="">
-      <b>Combatant Detail</b>
+    <div v-if="showCombatantDetail">
       <combatant-detail v-bind:combatant="combatants[currentIndex]" />
     </div>
   </div>
@@ -43,5 +43,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.margin-bottom-section {
+  margin-bottom: 1rem;
+}
 </style>

@@ -6,7 +6,7 @@
         <div class="add-combatant-form-buttons">
           <button
             type="button"
-            class=""
+            class="button"
             @click="
               displayForm = !displayForm;
               isNpc = false;
@@ -16,7 +16,7 @@
           </button>
           <button
             type="button"
-            class=""
+            class="button"
             @click="
               displayForm = !displayForm;
               isNpc = true;

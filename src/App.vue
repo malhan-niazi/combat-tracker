@@ -2,7 +2,7 @@
   <div id="app" class="content">
     <header-component />
     <div class="monospace">
-      <div class="">
+      <div class="" style="margin-bottom: 1rem">
         <add-combatant @add-combatant="add" />
       </div>
       <div class="">
@@ -93,7 +93,7 @@ export default {
           initiative: 14,
           passivePerception: 18,
           isNpc: true,
-          size: "md",
+          size: "lg",
           speed: 30,
           abilityScore: {
             str: 20,
@@ -128,9 +128,14 @@ button {
 }
 button {
   font-size: 0.75rem;
+  border: 1px dashed lightgray;
 }
 input {
   font-size: 0.85rem;
+  box-sizing: border-box;
+  max-width: 6.5rem;
+  border: 1px dotted lightgray;
+  border-radius: 0.25rem;
 }
 div {
   outline: 0px dotted lightgray;

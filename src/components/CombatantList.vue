@@ -1,6 +1,6 @@
 <template>
   <div id="combatant-list">
-    <div id="combatant-list-headers" class="grid col-5x">
+    <div id="combatant-list-headers" class="grid col-5x grid-gap-1">
       <div class="center__vertical underline">Name</div>
       <div class="center__vertical underline">Hit Points</div>
       <div class="center__vertical underline">Armor Class</div>
@@ -15,6 +15,7 @@
       v-bind:combatant="combatant"
       v-bind:index="index"
       @update-selection="updateSelection"
+      class="grid col-5x grid-gap-1"
     ></combatant-item>
   </div>
 </template>
@@ -54,6 +55,9 @@ export default {
 }
 .col-5x {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-gap-1 {
+  grid-gap: 5px;
 }
 .center__vertical {
   display: flex;

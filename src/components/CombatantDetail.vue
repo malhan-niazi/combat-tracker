@@ -1,65 +1,73 @@
 <template>
-  <div class="">
-    <div class="">
-      <b>Name</b>
-      <div>{{ combatant.name }}</div>
-    </div>
-    <div class="">
-      <b>Size</b>
-      <div>{{ size }}</div>
-    </div>
-    <div class="">
-      <b>Armor Class</b>
-      <div class="">
-        <input
-          type="number"
-          id="armorClass"
-          v-model.number="combatant.armorClass"
-        />
+  <div>
+    <div class="stacked">
+      <div class="margin-bottom">
+        <b>Combatant Detail</b>
       </div>
-    </div>
-    <div class="">
-      <b>Hit Points</b>
-      <div class="">
-        <input
-          class=""
-          type="number"
-          id="hitPoints"
-          v-model.number="combatant.hitPoints"
-        />
+      <div class="margin-bottom">
+        <b>Name</b>
+        <div class="name" :class="combatant.isNpc ? 'npc' : 'player'">
+          {{ combatant.name }}
+        </div>
       </div>
-    </div>
-    <div class="">
-      <b>Perception</b>
-      <div class="">
-        <input
-          class=""
-          type="number"
-          id="passivePerception"
-          v-model.number="combatant.passivePerception"
-        />
+      <div class="margin-bottom">
+        <b>Size</b>
+        <div>{{ size }}</div>
       </div>
-    </div>
-    <div class="">
-      <b>Initiative</b>
-      <div class="">
-        <input
-          class=""
-          type="number"
-          id="initiative"
-          v-model.number="combatant.initiative"
-        />
+      <div class="margin-bottom">
+        <b>Armor Class</b>
+        <div>
+          <input
+            class="field-value"
+            type="number"
+            id="armorClass"
+            v-model.number="combatant.armorClass"
+          />
+        </div>
       </div>
-    </div>
-    <div v-if="combatant.speed" class="">
-      <b>Speed</b>
-      <div class="">
-        <input
-          class=""
-          type="number"
-          id="speed"
-          v-model.number="combatant.speed"
-        />
+      <div class="margin-bottom">
+        <b>Hit Points</b>
+        <div>
+          <input
+            class="field-value"
+            type="number"
+            id="hitPoints"
+            v-model.number="combatant.hitPoints"
+          />
+        </div>
+      </div>
+      <div class="margin-bottom">
+        <b>Perception</b>
+        <div>
+          <input
+            class="field-value"
+            type="number"
+            id="passivePerception"
+            v-model.number="combatant.passivePerception"
+          />
+        </div>
+      </div>
+      <div class="margin-bottom">
+        <b>Initiative</b>
+        <div>
+          <input
+            class="field-value"
+            type="number"
+            id="initiative"
+            v-model.number="combatant.initiative"
+          />
+        </div>
+      </div>
+      <div v-if="combatant.speed" class="margin-bottom">
+        <b>Speed</b>
+        <div>
+          <input
+            class="field-value"
+            type="number"
+            id="speed"
+            v-model.number="combatant.speed"
+          />
+        </div>
       </div>
     </div>
     <div v-if="combatant.abilityScore" class="grid col-2x">
@@ -136,6 +144,7 @@ export default {
 <style scoped>
 .grid {
   display: grid;
+  grid-gap: 0.25rem;
 }
 .col-2x {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -147,6 +156,15 @@ export default {
   display: flex;
   align-items: center;
 }
+.stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.margin-bottom {
+  margin-bottom: 0.5rem;
+}
 .red {
   color: red;
 }
@@ -155,5 +173,16 @@ export default {
 }
 .grey {
   color: gray;
+}
+.npc {
+  color: indianred;
+}
+.player {
+  color: steelblue;
+}
+.name {
+  display: block;
+  margin: auto auto auto 0rem;
+  text-decoration: none;
 }
 </style>
