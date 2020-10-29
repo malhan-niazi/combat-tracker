@@ -31,7 +31,7 @@ export default {
           initiative: 12,
           armorClass: 14,
           passivePerception: 13,
-          size: "md",
+          size: "m",
           speed: 30,
           abilityScore: {
             str: 12,
@@ -49,7 +49,7 @@ export default {
           initiative: 13,
           passivePerception: 10,
           isNpc: false,
-          size: "md",
+          size: "m",
           speed: 20,
           abilityScore: {
             str: 14,
@@ -67,7 +67,7 @@ export default {
           initiative: 18,
           passivePerception: 14,
           isNpc: false,
-          size: "md",
+          size: "m",
           speed: 30,
           abilityScore: {
             str: 8,
@@ -85,7 +85,7 @@ export default {
           initiative: 14,
           passivePerception: 18,
           isNpc: true,
-          size: "lg",
+          size: "l",
           speed: 30,
           abilityScore: {
             str: 20,
@@ -120,18 +120,9 @@ button {
 }
 button {
   font-size: 0.75rem;
-  border: none;
-  display: block;
-  margin: 0.5rem;
-  width: 100%;
-  border-radius: 0.25rem;
 }
 input {
   font-size: 0.5rem;
-  box-sizing: border-box;
-  width: 100%;
-  border: 1px dotted lightgray;
-  border-radius: 0.25rem;
 }
 .content {
   padding-right: 15px;

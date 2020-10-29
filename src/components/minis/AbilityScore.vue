@@ -1,7 +1,7 @@
 <template>
   <div class="grid col-3x">
     <b>{{ ability }}</b>
-    <input type="number" id="ability-{{ ability }}" v-model.number="score" />
+    <input type="number" :id="'ability' + ability" v-model.number="score" />
     <span :class="modifierColor">{{ modifier }}</span>
   </div>
 </template>
