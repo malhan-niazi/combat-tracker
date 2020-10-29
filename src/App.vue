@@ -1,17 +1,9 @@
 <template>
   <div id="app" class="content">
     <header-component />
-    <div class="monospace">
-      <div class="" style="margin-bottom: 1rem">
-        <add-combatant @add-combatant="add" />
-      </div>
-      <div class="">
-        <combatant-tracker v-bind:combatants="combatants" />
-      </div>
-      <div class="">
-        <!-- <time-converter /> -->
-      </div>
-    </div>
+    <add-combatant @add-combatant="add" />
+    <combatant-tracker v-bind:combatants="combatants" />
+    <!-- <time-converter /> -->
   </div>
 </template>
 

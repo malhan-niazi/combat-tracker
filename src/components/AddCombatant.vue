@@ -1,28 +1,24 @@
 <template>
   <div>
-    <div v-if="!displayForm" class="">
-      <div>
-        <div>
-          <button
-            type="button"
-            @click="
-              displayForm = !displayForm;
-              isNpc = false;
-            "
-          >
-            Add Player
-          </button>
-          <button
-            type="button"
-            @click="
-              displayForm = !displayForm;
-              isNpc = true;
-            "
-          >
-            Add Monster
-          </button>
-        </div>
-      </div>
+    <div v-if="!displayForm">
+      <button
+        type="button"
+        @click="
+          displayForm = !displayForm;
+          isNpc = false;
+        "
+      >
+        Add Player
+      </button>
+      <button
+        type="button"
+        @click="
+          displayForm = !displayForm;
+          isNpc = true;
+        "
+      >
+        Add Monster
+      </button>
     </div>
     <!-- monster / character input form -->
     <div v-if="displayForm">

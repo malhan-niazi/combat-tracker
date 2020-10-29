@@ -6,34 +6,34 @@
         <input id="name" type="text" v-model="name" />
       </div>
       <div class="">
-        <label for="hitPoints">Hit Points</label>
-        <input id="hitPoints" type="number" v-model.number="hitPoints" />
+        <label for="hit-points">Hit Points</label>
+        <input id="hit-points" type="number" v-model.number="hitPoints" />
       </div>
       <div class="">
-        <label for="armorClass">Armor Class</label>
-        <input id="armorClass" type="number" v-model.number="armorClass" />
+        <label for="armor-class">Armor Class</label>
+        <input id="armor-class" type="number" v-model.number="armorClass" />
       </div>
       <div class="">
-        <label for="init">Initiative</label>
-        <input id="init" type="number" v-model.number="initiative" />
+        <label for="initiative">Initiative</label>
+        <input id="initiative" type="number" v-model.number="initiative" />
       </div>
       <div class="">
-        <label for="passivePerception">Passive Perception</label>
+        <label for="passive-perception">Passive Perception</label>
         <input
-          id="passivePerception"
+          id="passive-perception"
           type="number"
           v-model.number="passivePerception"
         />
       </div>
       <div class="">
-        <label for="sizeSelect">Select Size</label>
+        <label for="select-size">Select Size</label>
         <select class="">
-          <option value="tn" selected>Tiny</option>
-          <option value="sm">Small</option>
-          <option value="md">Medium</option>
-          <option value="lg">Large</option>
-          <option value="hu">Huge</option>
-          <option value="gr">Gargantuan</option>
+          <option value="t" selected>Tiny</option>
+          <option value="s">Small</option>
+          <option value="m">Medium</option>
+          <option value="l">Large</option>
+          <option value="h">Huge</option>
+          <option value="g">Gargantuan</option>
         </select>
       </div>
       <div class="">
@@ -41,7 +41,7 @@
         <input id="speed" type="number" v-model.number="speed" />
       </div>
       <div class="">
-        <label for="instrit">STR</label>
+        <label for="str">STR</label>
         <input id="str" type="number" v-model.number="abilityScore.str" />
       </div>
       <div class="">

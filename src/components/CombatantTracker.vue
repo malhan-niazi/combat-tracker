@@ -1,18 +1,14 @@
 <template>
   <div class="">
-    <div class="">
-      <div>
-        <b>Combatant List</b>
-      </div>
-      <combatant-list
-        v-bind:combatants="combatants"
-        @update-selection="updateSelection"
-        @hide-detail="showCombatantDetail = false"
-      />
-    </div>
-    <div v-if="showCombatantDetail">
-      <combatant-detail v-bind:combatant="combatants[currentIndex]" />
-    </div>
+    <combatant-list
+      v-bind:combatants="combatants"
+      @update-selection="updateSelection"
+      @hide-detail="showCombatantDetail = false"
+    />
+    <combatant-detail
+      v-if="showCombatantDetail"
+      v-bind:combatant="combatants[currentIndex]"
+    />
   </div>
 </template>
 

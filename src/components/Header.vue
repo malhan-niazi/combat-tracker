@@ -1,10 +1,6 @@
 <template>
   <div class="">
-    <nav>
-      <h2>
-        <a href class="">Combat Tracker</a>
-      </h2>
-    </nav>
+    <h2>Combat Tracker</h2>
   </div>
 </template>
 

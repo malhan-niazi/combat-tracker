@@ -6,68 +6,50 @@
       </div>
       <div class="">
         <b>Name</b>
-        <div class="name" :class="combatant.isNpc ? 'npc' : 'player'">
+        <span class="name" :class="combatant.isNpc ? 'npc' : 'player'">
           {{ combatant.name }}
-        </div>
+        </span>
       </div>
       <div class="">
         <b>Size</b>
-        <div>{{ size }}</div>
+        <span>{{ size }}</span>
       </div>
       <div class="">
         <b>Hit Points</b>
-        <div>
-          <input
-            class=""
-            type="number"
-            id="hitPoints"
-            v-model.number="combatant.hitPoints"
-          />
-        </div>
+        <input
+          type="number"
+          id="hit-points"
+          v-model.number="combatant.hitPoints"
+        />
       </div>
       <div class="">
         <b>Armor Class</b>
-        <div>
-          <input
-            class=""
-            type="number"
-            id="armorClass"
-            v-model.number="combatant.armorClass"
-          />
-        </div>
+        <input
+          type="number"
+          id="armor-class"
+          v-model.number="combatant.armorClass"
+        />
       </div>
       <div class="">
         <b>Perception</b>
-        <div>
-          <input
-            class=""
-            type="number"
-            id="passivePerception"
-            v-model.number="combatant.passivePerception"
-          />
-        </div>
+        <input
+          class=""
+          type="number"
+          id="passive-perception"
+          v-model.number="combatant.passivePerception"
+        />
       </div>
       <div class="">
         <b>Initiative</b>
-        <div>
-          <input
-            class=""
-            type="number"
-            id="initiative"
-            v-model.number="combatant.initiative"
-          />
-        </div>
+        <input
+          type="number"
+          id="initiative"
+          v-model.number="combatant.initiative"
+        />
       </div>
       <div v-if="combatant.speed" class="">
         <b>Speed</b>
-        <div>
-          <input
-            class=""
-            type="number"
-            id="speed"
-            v-model.number="combatant.speed"
-          />
-        </div>
+        <input type="number" id="speed" v-model.number="combatant.speed" />
       </div>
     </div>
     <div v-if="combatant.abilityScore" class="grid col-2x">
@@ -113,20 +95,20 @@ export default {
   computed: {
     size() {
       switch (this.combatant.size) {
-        case "tn":
-          return "tiny";
-        case "sm":
-          return "small";
-        case "md":
-          return "medium";
-        case "lg":
-          return "large";
-        case "hg":
-          return "huge";
-        case "gr":
-          return "gargantuan";
+        case "t":
+          return "Tiny";
+        case "s":
+          return "Small";
+        case "m":
+          return "Medium";
+        case "l":
+          return "Large";
+        case "h":
+          return "Huge";
+        case "g":
+          return "Gargantuan";
         default:
-          return "whoa";
+          return "NA";
       }
     },
   },

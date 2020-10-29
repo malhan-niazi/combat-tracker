@@ -1,5 +1,6 @@
 <template>
   <div id="combatant-list">
+    <b>Combatant List</b>
     <div id="combatant-list-headers" class="grid col-5x grid-gap-1">
       <div class="center underline">Name</div>
       <div class="center underline">Hit Points</div>

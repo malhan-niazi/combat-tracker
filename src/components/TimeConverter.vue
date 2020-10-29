@@ -1,32 +1,30 @@
 <template>
   <div class="">
+    <span>{{ msg }}</span>
     <div class="">
-      <span>{{ msg }}</span>
-      <div class="">
-        <input
-          type="number"
-          id="value"
-          placeholder="Value"
-          v-model.number="input"
-        />
-      </div>
-      <div>
-        <span id="valueHelp"
-          >Enter a value, and select the corresponding unit of time.</span
-        >
-      </div>
-      <div class="">
-        <select class="" v-model="selection">
-          <option value disabled selected>select time unit</option>
-          <option>hour</option>
-          <option>minute</option>
-          <option>second</option>
-          <option>round</option>
-        </select>
-      </div>
-      <!-- <p v-if="conversion">{{ conversion }}</p> -->
-      <p v-if="rounds">{{ rounds }}</p>
+      <input
+        type="number"
+        id="value"
+        placeholder="Value"
+        v-model.number="input"
+      />
     </div>
+    <div>
+      <span id="help-text"
+        >Enter a value, and select the corresponding unit of time.</span
+      >
+    </div>
+    <div class="">
+      <select class="" v-model="selection">
+        <option value disabled selected>select time unit</option>
+        <option>hour</option>
+        <option>minute</option>
+        <option>second</option>
+        <option>round</option>
+      </select>
+    </div>
+    <!-- <p v-if="conversion">{{ conversion }}</p> -->
+    <p v-if="rounds">{{ rounds }}</p>
   </div>
 </template>
 

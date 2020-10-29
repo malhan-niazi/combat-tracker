@@ -13,7 +13,7 @@
     <div class="">
       <input
         type="number"
-        id="hitPoints"
+        id="hit-points"
         v-model.number="combatant.hitPoints"
         class=""
       />
@@ -22,7 +22,7 @@
     <div class="">
       <input
         type="number"
-        id="armorClass"
+        id="armor-class"
         v-model.number="combatant.armorClass"
         class=""
       />
@@ -30,7 +30,7 @@
     <div class="">
       <input
         type="number"
-        id="passivePerception"
+        id="passive-perception"
         v-model.number="combatant.passivePerception"
         class=""
       />
