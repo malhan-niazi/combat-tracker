@@ -1,37 +1,33 @@
 <template>
   <div class="input-form">
     <form v-on:submit.prevent>
-      <div class="input-field-container margin">
+      <div>
         <label for="name">Name</label>
         <input id="name" type="text" v-model="name" />
       </div>
-      <div class="input-field-container margin">
-        <label for="hitPoints">Hit Points</label>
-        <input id="hitPoints" type="number" v-model.number="hitPoints" />
+      <div>
+        <label for="hit-points">Hit Points</label>
+        <input id="hit-points" type="number" v-model.number="hitPoints" />
       </div>
-      <div class="input-field-container margin">
-        <label for="armorClass">Armor Class</label>
-        <input id="armorClass" type="number" v-model.number="armorClass" />
+      <div>
+        <label for="armor-class">Armor Class</label>
+        <input id="armor-class" type="number" v-model.number="armorClass" />
       </div>
-      <div class="input-field-container margin">
-        <label for="init">Initiative</label>
-        <input id="init" type="number" v-model.number="initiative" />
+      <div>
+        <label for="initiative">Initiative</label>
+        <input id="initiative" type="number" v-model.number="initiative" />
       </div>
-      <div class="input-field-container margin">
-        <label for="passivePerception">Passive Perception</label>
+      <div>
+        <label for="passive-perception">Passive Perception</label>
         <input
-          id="passivePerception"
+          id="passive-perception"
           type="number"
           v-model.number="passivePerception"
         />
       </div>
-      <div class="input-field-buttons">
-        <button class="" type="submit" name="add" @click="addCombatant">
-          ok
-        </button>
-        <button type="submit" class="" name="cancel" @click="cancel">
-          cancel
-        </button>
+      <div>
+        <button type="submit" name="add" @click="addCombatant">ok</button>
+        <button type="submit" name="cancel" @click="cancel">cancel</button>
       </div>
     </form>
   </div>
@@ -87,13 +83,4 @@ export default {
 </script>
 
 <style scoped>
-.input-form {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-.input-field-container {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: 100%;
-}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row">
+    <div>
       <a
         href
         @click.prevent="updateSelection"
@@ -10,39 +10,37 @@
         {{ combatant.name }}
       </a>
     </div>
-    <div class="row">
+    <div class="">
       <input
         type="number"
         id="hitPoints"
         v-model.number="combatant.hitPoints"
-        class="input-hp"
+        class=""
       />
-      <span for="maxHitPoints" class="input-static-text"
-        >/{{ maxHitPoints }}</span
-      >
+      <span for="maxHitPoints">/{{ maxHitPoints }}</span>
     </div>
-    <div class="row">
+    <div class="">
       <input
         type="number"
         id="armorClass"
         v-model.number="combatant.armorClass"
-        class="field-value"
+        class=""
       />
     </div>
-    <div class="row">
+    <div class="">
       <input
         type="number"
         id="passivePerception"
         v-model.number="combatant.passivePerception"
-        class="field-value"
+        class=""
       />
     </div>
-    <div class="row">
+    <div class="">
       <input
         type="number"
         id="initiative"
         v-model.number="combatant.initiative"
-        class="field-value"
+        class=""
       />
     </div>
   </div>

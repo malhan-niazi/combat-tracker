@@ -1,23 +1,23 @@
 <template>
   <div class="input-form">
     <form class="" v-on:submit.prevent>
-      <div class="input-field-container">
+      <div class="">
         <label for="name">Name</label>
         <input id="name" type="text" v-model="name" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="hitPoints">Hit Points</label>
         <input id="hitPoints" type="number" v-model.number="hitPoints" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="armorClass">Armor Class</label>
         <input id="armorClass" type="number" v-model.number="armorClass" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="init">Initiative</label>
         <input id="init" type="number" v-model.number="initiative" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="passivePerception">Passive Perception</label>
         <input
           id="passivePerception"
@@ -25,7 +25,7 @@
           v-model.number="passivePerception"
         />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="sizeSelect">Select Size</label>
         <select class="">
           <option value="tn" selected>Tiny</option>
@@ -36,35 +36,35 @@
           <option value="gr">Gargantuan</option>
         </select>
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="speed">Speed</label>
         <input id="speed" type="number" v-model.number="speed" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="instrit">STR</label>
         <input id="str" type="number" v-model.number="abilityScore.str" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="dex">DEX</label>
         <input id="dex" type="number" v-model.number="abilityScore.dex" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="con">CON</label>
         <input id="con" type="number" v-model.number="abilityScore.con" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="int">INT</label>
         <input id="int" type="number" v-model.number="abilityScore.int" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="wis">WIS</label>
         <input id="wis" type="number" v-model.number="abilityScore.wis" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <label for="cha">CHA</label>
         <input id="cha" type="number" v-model.number="abilityScore.cha" />
       </div>
-      <div class="input-field-container">
+      <div class="">
         <button class="" type="submit" name="add" @click="addCombatant">
           ok
         </button>

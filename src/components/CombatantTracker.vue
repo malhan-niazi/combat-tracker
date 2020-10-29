@@ -1,14 +1,13 @@
 <template>
   <div class="">
     <div class="">
-      <div class="center-text">
+      <div>
         <b>Combatant List</b>
       </div>
       <combatant-list
         v-bind:combatants="combatants"
         @update-selection="updateSelection"
         @hide-detail="showCombatantDetail = false"
-        class="margin-bottom-section"
       />
     </div>
     <div v-if="showCombatantDetail">

@@ -1,68 +1,68 @@
 <template>
   <div>
     <div class="stacked">
-      <div class="margin-bottom">
+      <div class="">
         <b>Detail</b>
       </div>
-      <div class="margin-bottom">
+      <div class="">
         <b>Name</b>
         <div class="name" :class="combatant.isNpc ? 'npc' : 'player'">
           {{ combatant.name }}
         </div>
       </div>
-      <div class="margin-bottom">
+      <div class="">
         <b>Size</b>
         <div>{{ size }}</div>
       </div>
-      <div class="margin-bottom">
+      <div class="">
         <b>Hit Points</b>
         <div>
           <input
-            class="field-value"
+            class=""
             type="number"
             id="hitPoints"
             v-model.number="combatant.hitPoints"
           />
         </div>
       </div>
-      <div class="margin-bottom">
+      <div class="">
         <b>Armor Class</b>
         <div>
           <input
-            class="field-value"
+            class=""
             type="number"
             id="armorClass"
             v-model.number="combatant.armorClass"
           />
         </div>
       </div>
-      <div class="margin-bottom">
+      <div class="">
         <b>Perception</b>
         <div>
           <input
-            class="field-value"
+            class=""
             type="number"
             id="passivePerception"
             v-model.number="combatant.passivePerception"
           />
         </div>
       </div>
-      <div class="margin-bottom">
+      <div class="">
         <b>Initiative</b>
         <div>
           <input
-            class="field-value"
+            class=""
             type="number"
             id="initiative"
             v-model.number="combatant.initiative"
           />
         </div>
       </div>
-      <div v-if="combatant.speed" class="margin-bottom">
+      <div v-if="combatant.speed" class="">
         <b>Speed</b>
         <div>
           <input
-            class="field-value"
+            class=""
             type="number"
             id="speed"
             v-model.number="combatant.speed"
@@ -130,14 +130,6 @@ export default {
       }
     },
   },
-  methods: {
-    modifier(abilityScore) {
-      return Math.floor((abilityScore - 10) / 2);
-    },
-    modifierColor(modifier) {
-      return modifier < 0 ? "red" : modifier === 0 ? "grey" : "green";
-    },
-  },
 };
 </script>
 
@@ -149,26 +141,11 @@ export default {
 .col-2x {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.col-3x {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 .stacked {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-}
-.margin-bottom {
-  margin-bottom: 0.5rem;
-}
-.red {
-  color: red;
-}
-.green {
-  color: green;
-}
-.grey {
-  color: gray;
 }
 .npc {
   color: indianred;

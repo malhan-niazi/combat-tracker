@@ -1,8 +1,8 @@
 <template>
   <div class="grid col-3x">
     <b>{{ ability }}</b>
-    <input class="field-value" type="number" id="str" v-model.number="score" />
-    <span :class="modifierColor" class="center__vertical">{{ modifier }}</span>
+    <input type="number" id="str" v-model.number="score" />
+    <span :class="modifierColor">{{ modifier }}</span>
   </div>
 </template>
 
