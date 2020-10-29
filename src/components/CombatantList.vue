@@ -1,13 +1,11 @@
 <template>
   <div id="combatant-list">
     <div id="combatant-list-headers" class="grid col-5x grid-gap-1">
-      <div class="center__vertical underline">Name</div>
-      <div class="center__vertical underline">Hit Points</div>
-      <div class="center__vertical underline">Armor Class</div>
-      <div class="center__vertical underline">Perception</div>
-      <div @click="sortDescending" class="center__vertical underline">
-        Initiative
-      </div>
+      <div class="center underline">Name</div>
+      <div class="center underline">Hit Points</div>
+      <div class="center underline">Armor Class</div>
+      <div class="center underline">Perception</div>
+      <div @click="sortDescending" class="center underline">Initiative</div>
     </div>
     <combatant-item
       v-for="(combatant, index) in combatants"
@@ -59,9 +57,9 @@ export default {
 .grid-gap-1 {
   grid-gap: 5px;
 }
-.center__vertical {
-  display: flex;
-  align-items: center;
+.center {
+  display: block;
+  margin: 0.5rem;
 }
 .underline {
   text-decoration: underline;

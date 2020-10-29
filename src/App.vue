@@ -128,17 +128,18 @@ button {
 }
 button {
   font-size: 0.75rem;
-  border: 1px dashed lightgray;
-}
-input {
-  font-size: 0.85rem;
-  box-sizing: border-box;
-  max-width: 6.5rem;
-  border: 1px dotted lightgray;
+  border: none;
+  display: block;
+  margin: 0.5rem;
+  width: 100%;
   border-radius: 0.25rem;
 }
-div {
-  outline: 0px dotted lightgray;
+input {
+  font-size: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px dotted lightgray;
+  border-radius: 0.25rem;
 }
 .content {
   padding-right: 15px;

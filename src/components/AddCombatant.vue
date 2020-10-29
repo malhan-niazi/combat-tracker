@@ -1,12 +1,10 @@
 <template>
   <div>
     <div v-if="!displayForm" class="">
-      <div class="add-combatant-form">
-        <b>Add Combatant</b>
-        <div class="add-combatant-form-buttons">
+      <div>
+        <div>
           <button
             type="button"
-            class="button"
             @click="
               displayForm = !displayForm;
               isNpc = false;
@@ -16,7 +14,6 @@
           </button>
           <button
             type="button"
-            class="button"
             @click="
               displayForm = !displayForm;
               isNpc = true;
@@ -28,23 +25,23 @@
       </div>
     </div>
     <!-- monster / character input form -->
-    <div v-if="displayForm" class="">
+    <div v-if="displayForm">
       <div>
         Add
         <span>{{ isNpc ? "Monster" : "Character" }}</span>
       </div>
-      <input type="checkbox" v-model="makeStatBlock" class="stat-block-check" />
-      <label for="stat-block-check">Create Stat Block</label>
+      <div>
+        <input type="checkbox" v-model="makeStatBlock" />
+        <label for="stat-block-check">Create Stat Block</label>
+      </div>
       <stat-block-form
         v-if="makeStatBlock"
-        class=""
         @add-combatant="addCombatant"
         @cancel-add="displayForm = !displayForm"
         v-bind:isNpc="isNpc"
       ></stat-block-form>
       <basic-form
         v-if="!makeStatBlock"
-        class=""
         @add-combatant="addCombatant"
         @cancel-add="displayForm = !displayForm"
         v-bind:isNpc="isNpc"
@@ -83,8 +80,4 @@ export default {
 </script>
 
 <style scoped>
-.add-combatant-form-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 </style>

@@ -32,10 +32,6 @@ export default {
 .col-3x {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.center__vertical {
-  display: flex;
-  align-items: center;
-}
 .red {
   color: red;
 }

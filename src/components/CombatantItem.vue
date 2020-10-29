@@ -1,13 +1,15 @@
 <template>
   <div>
-    <a
-      href
-      @click.prevent="updateSelection"
-      class="name"
-      :class="combatant.isNpc ? 'npc' : 'player'"
-    >
-      {{ combatant.name }}
-    </a>
+    <div class="row">
+      <a
+        href
+        @click.prevent="updateSelection"
+        class="name"
+        :class="combatant.isNpc ? 'npc' : 'player'"
+      >
+        {{ combatant.name }}
+      </a>
+    </div>
     <div class="row">
       <input
         type="number"
@@ -19,7 +21,7 @@
         >/{{ maxHitPoints }}</span
       >
     </div>
-    <div>
+    <div class="row">
       <input
         type="number"
         id="armorClass"
@@ -27,7 +29,7 @@
         class="field-value"
       />
     </div>
-    <div>
+    <div class="row">
       <input
         type="number"
         id="passivePerception"
@@ -35,7 +37,7 @@
         class="field-value"
       />
     </div>
-    <div>
+    <div class="row">
       <input
         type="number"
         id="initiative"
@@ -69,27 +71,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-.input-hp {
-  max-width: 3.5rem;
-}
-.name {
-  display: block;
-  margin: auto auto auto 0rem;
-  text-decoration: none;
-}
-.npc {
-  color: indianred;
-}
-.player {
-  color: steelblue;
-}
-.input-static-text {
-  font-size: 0.85rem;
-  margin: auto 0.5rem;
-}
 </style>

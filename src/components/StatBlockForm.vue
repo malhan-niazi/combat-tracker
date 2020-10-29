@@ -145,12 +145,4 @@ export default {
 </script>
 
 <style scoped>
-.input-form {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-.input-field-container {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 </style>

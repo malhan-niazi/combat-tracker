@@ -1,23 +1,23 @@
 <template>
   <div class="input-form">
     <form v-on:submit.prevent>
-      <div class="input-field-container">
+      <div class="input-field-container margin">
         <label for="name">Name</label>
         <input id="name" type="text" v-model="name" />
       </div>
-      <div class="input-field-container">
+      <div class="input-field-container margin">
         <label for="hitPoints">Hit Points</label>
         <input id="hitPoints" type="number" v-model.number="hitPoints" />
       </div>
-      <div class="input-field-container">
+      <div class="input-field-container margin">
         <label for="armorClass">Armor Class</label>
         <input id="armorClass" type="number" v-model.number="armorClass" />
       </div>
-      <div class="input-field-container">
+      <div class="input-field-container margin">
         <label for="init">Initiative</label>
         <input id="init" type="number" v-model.number="initiative" />
       </div>
-      <div class="input-field-container">
+      <div class="input-field-container margin">
         <label for="passivePerception">Passive Perception</label>
         <input
           id="passivePerception"
@@ -25,7 +25,7 @@
           v-model.number="passivePerception"
         />
       </div>
-      <div class="input-field-container">
+      <div class="input-field-buttons">
         <button class="" type="submit" name="add" @click="addCombatant">
           ok
         </button>
@@ -94,5 +94,6 @@ export default {
 .input-field-container {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="">
     <div class="">
-      <b>Combatant Tracker</b>
+      <div class="center-text">
+        <b>Combatant List</b>
+      </div>
       <combatant-list
         v-bind:combatants="combatants"
         @update-selection="updateSelection"
@@ -44,7 +46,4 @@ export default {
 </script>
 
 <style scoped>
-.margin-bottom-section {
-  margin-bottom: 1rem;
-}
 </style>

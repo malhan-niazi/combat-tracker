@@ -2,7 +2,7 @@
   <div>
     <div class="stacked">
       <div class="margin-bottom">
-        <b>Combatant Detail</b>
+        <b>Detail</b>
       </div>
       <div class="margin-bottom">
         <b>Name</b>
@@ -15,17 +15,6 @@
         <div>{{ size }}</div>
       </div>
       <div class="margin-bottom">
-        <b>Armor Class</b>
-        <div>
-          <input
-            class="field-value"
-            type="number"
-            id="armorClass"
-            v-model.number="combatant.armorClass"
-          />
-        </div>
-      </div>
-      <div class="margin-bottom">
         <b>Hit Points</b>
         <div>
           <input
@@ -33,6 +22,17 @@
             type="number"
             id="hitPoints"
             v-model.number="combatant.hitPoints"
+          />
+        </div>
+      </div>
+      <div class="margin-bottom">
+        <b>Armor Class</b>
+        <div>
+          <input
+            class="field-value"
+            type="number"
+            id="armorClass"
+            v-model.number="combatant.armorClass"
           />
         </div>
       </div>
@@ -151,10 +151,6 @@ export default {
 }
 .col-3x {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.center__vertical {
-  display: flex;
-  align-items: center;
 }
 .stacked {
   display: flex;
