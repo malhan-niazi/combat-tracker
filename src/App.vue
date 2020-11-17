@@ -112,6 +112,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  background-color: #121214;
+  color: #af9a91;
+}
+input {
+  background-color: #af9a91;
+  color: #121214;
+}
+button {
+  background-color: #4e4b61;
+  color: #af9a91;
+}
 body,
 input,
 button {

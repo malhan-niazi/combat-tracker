@@ -130,10 +130,10 @@ export default {
   justify-content: center;
 }
 .npc {
-  color: indianred;
+  color: #d9443f;
 }
 .player {
-  color: steelblue;
+  color: #a4dce7;
 }
 .name {
   display: block;

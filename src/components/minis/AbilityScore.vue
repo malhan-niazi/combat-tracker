@@ -33,12 +33,12 @@ export default {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .red {
-  color: red;
+  color: #ba3934;
 }
 .green {
-  color: green;
+  color: #8faea9;
 }
 .gray {
-  color: gray;
+  color: #af9a91;
 }
 </style>
